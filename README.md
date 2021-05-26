@@ -1,3 +1,5 @@
+# a change from Sean's branch :)
+
 # Wearables E-Commerce Project
 
 [See the list of TEAMS](__documentation/TEAMS.md)

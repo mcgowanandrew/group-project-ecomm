@@ -11,6 +11,7 @@ function App() {
           <Route exact path="/">
           <LangingPage />
         </Route>
+        <div></div>
         </Switch>
     </BrowserRouter>
 

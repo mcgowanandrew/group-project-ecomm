@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import GlobalStyles from "./GlobalStyles"
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [bacon, setBacon] = useState(null);
 
-  useEffect(() => {
-    fetch('/bacon')
-      .then(res => res.json())
-      .then(data => setBacon(data));
-  }, []);
+  return (
+    <BrowserRouter>
+          <GlobalStyles />
+          <Switch>
+          <Route exact path="/">
+          <LangingPage />
+        </Route>
+        </Switch>
+    </BrowserRouter>
 
-  return <div>{bacon ? bacon : `...where's my stuff?...`}</div>;
+  )
 }
 
 export default App;

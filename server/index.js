@@ -1,30 +1,37 @@
-'use strict';
+"use strict";
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+const express = require("express");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
 
 const PORT = 4000;
 
-express()
-  .use(function(req, res, next) {
-    res.header(
-      'Access-Control-Allow-Methods',
-      'OPTIONS, HEAD, GET, PUT, POST, DELETE'
-    );
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    next();
-  })
-  .use(morgan('tiny'))
-  .use(express.static('./server/assets'))
-  .use(bodyParser.json())
-  .use(express.urlencoded({ extended: false }))
-  .use('/', express.static(__dirname + '/'))
+const { getAllItems, getItemsById, getCompanyById } = require("./handlers");
 
-  // REST endpoints?
-  .get('/bacon', (req, res) => res.status(200).json('🥓'))
+const app = express();
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, HEAD, GET, PUT, POST, DELETE"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+app.use(morgan("tiny"));
+app.use(express.static("./server/assets"));
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use("/", express.static(__dirname + "/"));
 
-  .listen(PORT, () => console.info(`Listening on port ${PORT}`));
+// REST endpoints?
+
+app.get("/items", getAllItems);
+app.get("/items/:id", getItemsById);
+app.get("/company/:id", getCompanyById);
+
+app.get("/bacon", (req, res) => res.status(200).json("🥓"));
+
+app.listen(PORT, () => console.info(`Listening on port ${PORT}`));

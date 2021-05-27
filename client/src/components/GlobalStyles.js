@@ -9,17 +9,28 @@ export default createGlobalStyle`
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
   }
-
+///
   html, body, div,
   input, button, select, option,
   h1, h2, h3, h4, h5, h6, p,
   text {
     font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+      font-size: 10px;
   }
 
   html, body {
       max-width: 100vw;
   }
+
+  h1{
+      font-weight: 500;
+  }
+  
+h2{
+    font-weight: 400;
+}
+
 
   /* http://meyerweb.com/eric/tools/css/reset/
       v2.0 | 20110126
@@ -52,8 +63,7 @@ export default createGlobalStyle`
   }
   body {
       line-height: 1;
-      font-weight: 300;
-      font-size: 10px;
+     
   }
   ol, ul {
       list-style: none;
@@ -62,13 +72,7 @@ export default createGlobalStyle`
       quotes: none;
   }
 
-  h1{
-      font-weight: 500;
-  }
-  
-h2{
-    font-weight: 400;
-}
+
 
   blockquote:before, blockquote:after,
   q:before, q:after {

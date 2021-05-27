@@ -26,4 +26,4 @@ fetch for item information
 fetch for companies
 
 stretch goal
-go from brand to all items with same brand
+go from brand to all items with samebrand

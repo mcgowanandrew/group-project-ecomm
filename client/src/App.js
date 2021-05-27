@@ -1,6 +1,8 @@
 import React from 'react';
-import GlobalStyles from "./GlobalStyles"
+import GlobalStyles from "./components/GlobalStyles"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import LandingPage from "./components/LandingPage"
 
 function App() {
 
@@ -9,9 +11,8 @@ function App() {
           <GlobalStyles />
           <Switch>
           <Route exact path="/">
-          <LangingPage />
+          <LandingPage />
         </Route>
-        <div></div>
         </Switch>
     </BrowserRouter>
 

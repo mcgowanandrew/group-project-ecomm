@@ -16,4 +16,4 @@ GET /items/:id
 
 4. PUT change numInStock (mark product purchased, if it reaches 0 it is sold out)
 
-5. DELETE request?
+5. DELETE request

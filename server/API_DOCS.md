@@ -17,3 +17,13 @@ GET /items/:id
 4. PUT change numInStock (mark product purchased, if it reaches 0 it is sold out)
 
 5. DELETE request
+
+GET /companies/:id
+
+patch single company id
+
+fetch for item information
+fetch for companies
+
+stretch goal
+go from brand to all items with same brand

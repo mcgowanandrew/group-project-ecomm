@@ -56,7 +56,8 @@ const StyledTiSocialYoutube = styled(TiSocialYoutube)`
 const Social = styled.div`
   width: 20vw;
   display: flex;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
   justify-content: space-around;
   padding: 10px;
 `;
@@ -68,6 +69,7 @@ const Landing = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 `;
 
 export default LandingPage;

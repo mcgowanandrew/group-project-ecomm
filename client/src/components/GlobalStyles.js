@@ -13,7 +13,6 @@ export default createGlobalStyle`
   h1, h2, h3, h4, h5, h6, p,
   text {
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: #3F3F3F;
    
   }
 
@@ -81,6 +80,8 @@ export default createGlobalStyle`
   html, body {
       max-width: 100vw;
       font-size: 10px;
+      background-color: #3F3F3F;
+
   }
   h1{
       font-weight: 500;

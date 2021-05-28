@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar/Navbar";
+import ShopAll from "./components/ShopAll"
 
 ///
 function App() {
@@ -17,6 +18,10 @@ function App() {
           </div>
           <LandingPage />
         </Route>
+        <Route exact path="/items">
+          <ShopAll/>
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );

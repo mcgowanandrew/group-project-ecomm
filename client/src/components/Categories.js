@@ -36,7 +36,9 @@ const Dark = styled.div`
   height: 35rem;
   background: rgba(0, 0, 0, 0.5);
   &:hover {
-    background: rgba(0, 0, 0, 0.8);;
+    background: rgba(0, 0, 0, 0.8);
+
+      transition: all 0.2s ease-in-out
   }
 `;
 const Fit = styled.h2`

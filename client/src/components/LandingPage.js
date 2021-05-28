@@ -65,8 +65,9 @@ const Social = styled.div`
 const Landing = styled.div`
   background-image: url(${img});
   background-size: cover;
+  margin-top: -10vh;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   justify-content: center;
   overflow: hidden;

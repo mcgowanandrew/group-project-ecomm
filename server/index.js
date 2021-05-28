@@ -11,6 +11,7 @@ const {
   getAllCompanies,
   getItemsById,
   getCompaniesById,
+  patchItems,
 } = require("./handlers");
 
 const app = express();
@@ -40,6 +41,7 @@ app.get("/items/:id", getItemsById);
 
 app.get("/companies", getAllCompanies);
 app.get("/companies/:id", getCompaniesById);
+app.patch("/cart/update", patchItems);
 
 app.get("/bacon", (req, res) => res.status(200).json("🥓"));
 

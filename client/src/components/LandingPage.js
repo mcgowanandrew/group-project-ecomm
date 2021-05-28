@@ -1,16 +1,73 @@
-import React from "react"
+import React from "react";
+import styled from "styled-components";
+import img from "../assets/bg.jpg";
+import {
+  TiSocialTwitter,
+  TiSocialInstagram,
+  TiSocialFacebook,
+  TiSocialYoutube,
+} from "react-icons/ti";
 
+const LandingPage = () => {
+  return (
+    <Landing>
+      <Social>
+        <a href="/">
+          <StyledTiSocialTwitter />
+        </a>
+        <a href="/">
+          <StyledTiSocialInstagram />
+        </a>
+        <a href="/">
+          <StyledTiSocialFacebook />
+        </a>
+        <a href="/">
+          <StyledTiSocialYoutube />
+        </a>
+      </Social>
+    </Landing>
+  );
+};
 
-const LandingPage=()=>{
+const StyledTiSocialTwitter = styled(TiSocialTwitter)`
+  width: 20px;
+  height: 20px;
+  color: #fff;
+`;
 
-return (
+const StyledTiSocialInstagram = styled(TiSocialInstagram)`
+  width: 20px;
+  height: 20px;
+  color: #fff;
+`;
 
-    <div>hello world</div>
-)
+const StyledTiSocialFacebook = styled(TiSocialFacebook)`
+  width: 20px;
+  height: 20px;
+  color: #fff;
+`;
 
+const StyledTiSocialYoutube = styled(TiSocialYoutube)`
+  width: 20px;
+  height: 20px;
+  color: #fff;
+`;
 
+const Social = styled.div`
+  width: 20vw;
+  display: flex;
+  align-self: flex-end;
+  justify-content: space-around;
+  padding: 10px;
+`;
 
+const Landing = styled.div`
+  background-image: url(${img});
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+`;
 
-}
-
-export default LandingPage
+export default LandingPage;

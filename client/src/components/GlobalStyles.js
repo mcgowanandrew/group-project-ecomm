@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-
-
 export default createGlobalStyle`
   *,
   *:before,
@@ -15,21 +13,18 @@ export default createGlobalStyle`
   h1, h2, h3, h4, h5, h6, p,
   text {
     font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 300;
-      font-size: 10px;
+   
   }
 
   html, body {
       max-width: 100vw;
+      font-weight: 300;
+      /* font-size: 10px; */
   }
 
-  h1{
-      font-weight: 500;
-  }
+
   
-h2{
-    font-weight: 400;
-}
+
 
 
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -79,6 +74,24 @@ h2{
       content: '';
       content: none;
   }
+//Global styles
 
 
+  html, body {
+      max-width: 100vw;
+      font-size: 10px;
+  }
+  h1{
+      font-weight: 500;
+      font-size: 3.0rem;
+/*  */
+  }
+  h2{
+    font-weight: 500;
+    font-size: 2.0rem;
+}
+p,span,section{
+    font-weight:400;
+    font-size: 1.6rem;
+}
 `;

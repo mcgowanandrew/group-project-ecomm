@@ -1,8 +1,9 @@
 import React from "react";
 import GlobalStyles from "./components/GlobalStyles";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
+import Header from "./components/Header"
 import Navbar from "./components/Navbar/Navbar";
 import ShopAll from "./components/ShopAll"
 import Categories from "./components/Categories"
@@ -16,11 +17,13 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
+      <Header/>
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <div className="App">
             <Navbar />
-          </div>
+          </div> */}
+          <Route exact path="/">
           <LandingPage />
         </Route>
         <Route exact path="/categories">

@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react"
 import styled from "styled-components"
-import Item from "../components/Item/Item"
+import AllItems from "./Item/AllItems"
 
 const ShopAll = ()=>{
     const [allItems, setAllItems]=useState([])
@@ -10,32 +10,42 @@ const ShopAll = ()=>{
         return res.json();
       })
       .then((data)=>{
-        setAllItems(data)
-        console.log("all",allItems)
+        // console.log("cool",data[1])
+        const feedArray= Object.values(data)[1]
+        setAllItems(feedArray)
+
   
       })
-    },[allItems])
+    },[])
+    // console.log("all",allItems)
 
     return(
-
-<Wrapper>
-{/* {allItems.map((item)=>{
-    return(<Item 
-    price={item.price}/>
-
-    )
-})} */}
+<PageWrap>
+<GridWrap>
+{allItems.map((item)=>{
+  // console.log("hi",item.name)
+    return <AllItems key={item._id} item={item}/>;
+})}
 
 
 
-</Wrapper>
-
+</GridWrap>
+</PageWrap>
 
 
     )
 }
 
+const PageWrap = styled.div`
+width:100vw;
+height:100vh;`
 
-
-const Wrapper = styled.div``
+const GridWrap = styled.div`
+width:80vw;
+margin:0 auto;
+display:grid;
+grid-template-columns:30rem 30rem 30rem;
+justify-content:space-between;
+align-items: center;
+grid-gap:1.5rem;`
 export default ShopAll

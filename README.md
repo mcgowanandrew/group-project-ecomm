@@ -1,14 +1,4 @@
-# a change from Sean's branch :)
-
-# :(
-
-# change from smuise branch!
-
-#change form Aru
-
 # Wearables E-Commerce Project
-
-# clown-town
 
 [See the list of TEAMS](__documentation/TEAMS.md)
 

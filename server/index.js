@@ -6,7 +6,12 @@ const morgan = require("morgan");
 
 const PORT = 4000;
 
-const { getAllItems, getAllCompanies } = require("./handlers");
+const {
+  getAllItems,
+  getAllCompanies,
+  getItemsById,
+  getCompaniesById,
+} = require("./handlers");
 
 const app = express();
 app.use(function (req, res, next) {
@@ -29,10 +34,12 @@ app.use("/", express.static(__dirname + "/"));
 // REST endpoints for all items
 
 app.get("/items", getAllItems);
+app.get("/items/:id", getItemsById);
 
 // REST endpoints for all companies
 
 app.get("/companies", getAllCompanies);
+app.get("/companies/:id", getCompaniesById);
 
 app.get("/bacon", (req, res) => res.status(200).json("🥓"));
 

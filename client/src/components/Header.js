@@ -42,6 +42,7 @@ const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
 const StyledBiCartAlt = styled(BiCartAlt)`
   width: 2.6rem;
   height: 100%;
+  cursor: pointer;
   &:hover {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
@@ -49,8 +50,8 @@ const StyledBiCartAlt = styled(BiCartAlt)`
 `;
 const StyledBiUserCircle = styled(BiUserCircle)`
   width: 2.6rem;
-
   height: 100%;
+  cursor: pointer;
   &:hover {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;

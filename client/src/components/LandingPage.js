@@ -33,24 +33,40 @@ const StyledTiSocialTwitter = styled(TiSocialTwitter)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const StyledTiSocialInstagram = styled(TiSocialInstagram)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const StyledTiSocialFacebook = styled(TiSocialFacebook)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const StyledTiSocialYoutube = styled(TiSocialYoutube)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const Social = styled.div`

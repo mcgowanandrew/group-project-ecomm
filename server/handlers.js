@@ -1,5 +1,6 @@
 const items = require("./data/items.json");
 const companies = require("./data/companies.json");
+const { restart } = require("nodemon");
 
 //console.log("items", items);
 
@@ -88,9 +89,38 @@ const getCompaniesById = (req, res) => {
   }
 };
 
+const patchItems = (req, res) => {
+  const { _id, quantity } = req.body;
+
+  let purchasedItem = items.filter((item) => {
+    return item._id === _id;
+  });
+
+  // when adding fetch for this handler in the front end cart componenent
+  // aka running fetch onClick of purchase button
+  // fetch will perceive the type of API call as a POST
+  // reference twitter clone tweet post for this.
+
+  // could get things from front end purchase of cart
+  // this way:
+  // [ { _id: 6545, quantity: 2 }, { _id: 6544, quantity: 1 } ]
+  // console.log(req.body);
+  // the reasoning is - people might buy more than 1 item
+  // right now handler works for the purchase of only 1 item at
+  // a time :)
+
+  purchasedItem[0].numInStock = purchasedItem[0].numInStock - quantity;
+  res.status(200).json({
+    status: 200,
+    message: "updated",
+    data: purchasedItem,
+  });
+};
+
 module.exports = {
   getAllItems,
   getAllCompanies,
   getItemsById,
   getCompaniesById,
+  patchItems,
 };

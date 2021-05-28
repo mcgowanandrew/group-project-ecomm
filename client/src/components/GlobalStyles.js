@@ -13,6 +13,7 @@ export default createGlobalStyle`
   h1, h2, h3, h4, h5, h6, p,
   text {
     font-family: 'Noto Sans JP', sans-serif;
+    background-color: #3F3F3F;
    
   }
 

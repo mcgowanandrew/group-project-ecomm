@@ -76,11 +76,13 @@ export default createGlobalStyle`
   }
 //Global styles
 
-
+a{
+    text-decoration: none;
+}
   html, body {
       max-width: 100vw;
       font-size: 10px;
-      background-color: #3F3F3F;
+      /* background-color: #3F3F3F; */
 
   }
   h1{

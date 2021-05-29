@@ -7,10 +7,12 @@ import {
   TiSocialFacebook,
   TiSocialYoutube,
 } from "react-icons/ti";
+import Cart from "./CartComponents/Cart";
 
 const LandingPage = () => {
   return (
     <Landing>
+      <Cart />
       <Social>
         <a href="/">
           <StyledTiSocialTwitter />

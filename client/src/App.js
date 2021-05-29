@@ -4,12 +4,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Navbar from "./components/Navbar/Navbar";
-import ShopAll from "./components/ShopAll"
-import Categories from "./components/Categories"
-import Entertainment from "./components/CategoryComponents/Entertainment"
-import Fitness from "./components/CategoryComponents/Fitness"
-import Lifestyle from "./components/CategoryComponents/Lifestyle"
-import Medical from './components/CategoryComponents/Medical'
+import ShopAll from "./components/ShopAll";
+import Categories from "./components/Categories";
+import Entertainment from "./components/CategoryComponents/Entertainment";
+import Fitness from "./components/CategoryComponents/Fitness";
+import Lifestyle from "./components/CategoryComponents/Lifestyle";
+import Medical from "./components/CategoryComponents/Medical";
 
 ///
 function App() {
@@ -24,24 +24,23 @@ function App() {
           <LandingPage />
         </Route>
         <Route exact path="/categories">
-          <Categories/>
+          <Categories />
         </Route>
         <Route exact path="/entertainment">
-          <Entertainment/>
+          <Entertainment />
         </Route>
         <Route exact path="/Fitness">
-          <Fitness/>
+          <Fitness />
         </Route>
         <Route exact path="/Lifestyle">
-          <Lifestyle/>
+          <Lifestyle />
         </Route>
         <Route exact path="/medical">
-          <Medical/>
+          <Medical />
         </Route>
         <Route exact path="/shop-all">
-          <ShopAll/>
+          <ShopAll />
         </Route>
-
       </Switch>
     </BrowserRouter>
   );

@@ -1,9 +1,10 @@
 import React from "react";
 import GlobalStyles from "./components/GlobalStyles";
-import { BrowserRouter, Switch, Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Header from "./components/Header"
+<<<<<<< HEAD
 import Navbar from "./components/Navbar/Navbar";
 import ShopAll from "./components/ShopAll";
 import Categories from "./components/Categories";
@@ -11,6 +12,15 @@ import Entertainment from "./components/CategoryComponents/Entertainment";
 import Fitness from "./components/CategoryComponents/Fitness";
 import Lifestyle from "./components/CategoryComponents/Lifestyle";
 import Medical from "./components/CategoryComponents/Medical";
+=======
+// import Navbar from "./components/Navbar/Navbar";
+import ShopAll from "./components/ShopAll"
+import Categories from "./components/Categories"
+import Entertainment from "./components/CategoryComponents/Entertainment"
+import Fitness from "./components/CategoryComponents/Fitness"
+import Lifestyle from "./components/CategoryComponents/Lifestyle"
+import Medical from './components/CategoryComponents/Medical'
+>>>>>>> 7f23587664e78cd1dfa7be5ed305fb16a9f20a0e
 
 ///
 function App() {

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import img from "../assets/bg.jpg";
+import surf from "../assets/surf.jpg"
 import {
   TiSocialTwitter,
   TiSocialInstagram,
@@ -33,30 +34,46 @@ const StyledTiSocialTwitter = styled(TiSocialTwitter)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const StyledTiSocialInstagram = styled(TiSocialInstagram)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const StyledTiSocialFacebook = styled(TiSocialFacebook)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const StyledTiSocialYoutube = styled(TiSocialYoutube)`
   width: 20px;
   height: 20px;
   color: #fff;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 const Social = styled.div`
   width: 20vw;
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   justify-content: space-around;
   padding: 10px;
@@ -65,11 +82,19 @@ const Social = styled.div`
 const Landing = styled.div`
   background-image: url(${img});
   background-size: cover;
+<<<<<<< HEAD
+=======
+  position:fixed;
+ 
+>>>>>>> 7f23587664e78cd1dfa7be5ed305fb16a9f20a0e
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  @media (max-width: 890px) {
+    background-image: url(${surf});
+  }
 `;
 
 export default LandingPage;

@@ -1,51 +1,56 @@
-import React,{useEffect,useState} from "react"
-import styled from "styled-components"
-import AllItems from "./Item/AllItems"
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import AllItems from "./Item/AllItems";
 
-const ShopAll = ()=>{
-    const [allItems, setAllItems]=useState([])
-    useEffect(()=>{
-      fetch("/items",{method:"GET"})
-      .then((res)=>{
+const ShopAll = () => {
+  const [allItems, setAllItems] = useState([]);
+  useEffect(() => {
+    fetch("/items", { method: "GET" })
+      .then((res) => {
         return res.json();
       })
-      .then((data)=>{
+      .then((data) => {
         // console.log("cool",data[1])
-        const feedArray= Object.values(data)[1]
-        setAllItems(feedArray)
+        const feedArray = Object.values(data)[1];
+        setAllItems(feedArray);
+      });
+  }, []);
+  // console.log("all",allItems)
 
-  
-      })
-    },[])
-    // console.log("all",allItems)
-
-    return(
-<PageWrap>
-<GridWrap>
-{allItems.map((item)=>{
-  // console.log("hi",item.name)
-    return <AllItems key={item._id} item={item}/>;
-})}
-
-
-
-</GridWrap>
-</PageWrap>
-
-
-    )
-}
+  return (
+    <PageWrap>
+      <GridWrap>
+        {allItems.map((item) => {
+          // console.log("hi",item.name)
+          return <AllItems key={item._id} item={item} />;
+        })}
+      </GridWrap>
+    </PageWrap>
+  );
+};
 
 const PageWrap = styled.div`
-width:100vw;
-height:100vh;`
+  height: 100vh;
+  margin: 0 auto;
+`;
 
 const GridWrap = styled.div`
-width:80vw;
-margin:0 auto;
-display:grid;
-grid-template-columns:30rem 30rem 30rem;
-justify-content:space-between;
-align-items: center;
-grid-gap:1.5rem;`
-export default ShopAll
+  width: 90%;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: 20rem 20rem 20rem 20rem;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 3rem;
+  @media (max-width: 890px) {
+    grid-template-columns: 20rem 20rem 20rem;
+    /* overflow-x:visible; */
+  }
+  @media (max-width: 675px) {
+    grid-template-columns: 20rem 20rem;
+  }
+  @media (max-width: 415px) {
+    grid-template-columns: 20rem;
+  }
+`;
+export default ShopAll;

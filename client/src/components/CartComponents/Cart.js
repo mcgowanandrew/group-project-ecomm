@@ -1,24 +1,30 @@
 import React from "react";
 import styled from "styled-components";
+import { BiCartAlt } from "react-icons/bi";
 
 const Cart = () => {
   return (
-    <Container>
-      <Wrapper>Button</Wrapper>
-    </Container>
+    <Wrapper>
+      <BiCartAlt />
+    </Wrapper>
   );
 };
-const Container = styled.div``;
 
-const Wrapper = styled.div`
-  min-width: 100px;
-  padding: 16px 32px;
+const Wrapper = styled.button`
   border-radius: 4px;
   border: none;
-  background: #141414;
+  background: red;
   color: #fff;
   font-size: 24px;
   cursor: pointer;
 `;
+// const StyledBiCartAlt = styled(BiCartAlt)`
+//   width: 2.6rem;
+//   height: 100%;
+//   &:hover {
+//     opacity: 0.5;
+//     transition: all 0.2s ease-in-out;
+//   }
+// `;
 
 export default Cart;

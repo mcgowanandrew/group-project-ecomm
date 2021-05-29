@@ -7,12 +7,10 @@ import {
   TiSocialFacebook,
   TiSocialYoutube,
 } from "react-icons/ti";
-import Cart from "./CartComponents/Cart";
 
 const LandingPage = () => {
   return (
     <Landing>
-      <Cart />
       <Social>
         <a href="/">
           <StyledTiSocialTwitter />
@@ -67,9 +65,8 @@ const Social = styled.div`
 const Landing = styled.div`
   background-image: url(${img});
   background-size: cover;
-  margin-top: -10vh;
   width: 100vw;
-  height: 110vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   overflow: hidden;

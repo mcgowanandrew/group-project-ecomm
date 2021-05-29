@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
-import { FaOpencart } from "react-icons/fa";
+// import { FaOpencart } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -27,11 +27,11 @@ const Header = () => {
 //   width: 30rem;
 //   height: 3rem;
 //   margin-bottom: 1rem;
-//   border-radius: 1.5rem;
+//   border-radius: 2vw;
 //   border: none;
 // `;
 const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
-  width: 2.6rem;
+  width: 2.3vw;
   height: 100%;
   cursor: pointer;
   &:hover {
@@ -40,7 +40,7 @@ const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
   }
 `;
 const StyledBiCartAlt = styled(BiCartAlt)`
-  width: 2.6rem;
+  width: 2.3vw;
   height: 100%;
   cursor: pointer;
   &:hover {
@@ -49,7 +49,7 @@ const StyledBiCartAlt = styled(BiCartAlt)`
   }
 `;
 const StyledBiUserCircle = styled(BiUserCircle)`
-  width: 2.6rem;
+  width: 2.3vw;
   height: 100%;
   cursor: pointer;
   &:hover {
@@ -60,16 +60,13 @@ const StyledBiUserCircle = styled(BiUserCircle)`
 
 const CartWrap = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   margin-right: 1.5rem;
   margin-top: 1rem;
-  width: 10vw;
-  height: 8vh;
 `;
 
 const StoreName = styled(NavLink)`
-  font-size: 3rem;
+  font-size: 3vw;
   color: #fff;
   font-weight: 700;
   &:hover {
@@ -79,8 +76,9 @@ const StoreName = styled(NavLink)`
 `;
 
 const Cat = styled(NavLink)`
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   font-weight: 550;
+  margin-left: 1rem;
   color: #fff;
   &:hover {
     opacity: 0.5;
@@ -89,7 +87,8 @@ const Cat = styled(NavLink)`
 `;
 
 const All = styled(NavLink)`
-  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-size: 1.5vw;
   font-weight: 550;
   color: #fff;
   &:hover {
@@ -99,7 +98,8 @@ const All = styled(NavLink)`
 `;
 
 const About = styled(NavLink)`
-  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-size: 1.5vw;
   font-weight: 550;
   color: #fff;
   &:hover {
@@ -109,7 +109,8 @@ const About = styled(NavLink)`
 `;
 
 const Con = styled(NavLink)`
-  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-size: 1.5vw;
   font-weight: 550;
   color: #fff;
   &:hover {
@@ -120,22 +121,17 @@ const Con = styled(NavLink)`
 
 const LinkWrap = styled.div`
   display: flex;
-
-  justify-content: space-between;
   align-items: flex-end;
   padding: 1rem;
   margin-left: 1rem;
-  width: 50vw;
-  height: 8vh;
 `;
 
 const Main = styled.div`
   color: #fff;
-  position: relative;
+  /* position: relative; */
   z-index: 10;
   background: #000;
   width: 100vw;
-  height: 8vh;
   display: flex;
   justify-content: space-between;
 `;

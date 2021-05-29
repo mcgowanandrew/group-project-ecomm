@@ -29,6 +29,7 @@ const Categories = () => {
   );
 };
 const Dark = styled.div`
+  border-radius: 1.5rem;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -55,6 +56,7 @@ const Med = styled.h2`
 `;
 
 const Lifestyle = styled(NavLink)`
+  border-radius: 1.5rem;
   text-decoration: none;
   background-size: cover;
   width: 35rem;
@@ -63,6 +65,7 @@ const Lifestyle = styled(NavLink)`
 
 `;
 const Entertainment = styled(NavLink)`
+  border-radius: 1.5rem;
   text-decoration: none;
   background-size: cover;
   width: 35rem;
@@ -71,6 +74,7 @@ const Entertainment = styled(NavLink)`
 
 `;
 const Medical = styled(NavLink)`
+  border-radius: 1.5rem;
   text-decoration: none;
   background-size: cover;
   width: 35rem;
@@ -80,6 +84,7 @@ const Medical = styled(NavLink)`
 `;
 
 const Fitness = styled(NavLink)`
+  border-radius: 1.5rem;
   text-decoration: none;
   background-size: cover;
   width: 35rem;
@@ -88,10 +93,10 @@ const Fitness = styled(NavLink)`
 `;
 
 const CatgegoryWrap = styled.div`
-margin-top: 2rem;
+margin-top: 3rem;
   display: grid;
   grid-template-columns: 35rem 35rem;
-  gap: 1.5rem;
+  gap: 3rem;
   justify-content: center;
   align-content: center;
 

@@ -12,6 +12,7 @@ const {
   getItemsById,
   getCompaniesById,
   patchItems,
+  getAllCategories,
 } = require("./handlers");
 
 const app = express();

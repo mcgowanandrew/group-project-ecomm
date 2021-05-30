@@ -10,19 +10,17 @@ const ShopAll = () => {
         return res.json();
       })
       .then((data) => {
-        // console.log("cool",data[1])
         const feedArray = Object.values(data)[1];
         setAllItems(feedArray);
       });
   }, []);
-  // console.log("all",allItems)
 
   return (
     <PageWrap>
       <GridWrap>
         {allItems.map((item) => {
-          // console.log("hi",item.name)
           return <AllItems key={item._id} item={item} />;
+          
         })}
       </GridWrap>
     </PageWrap>

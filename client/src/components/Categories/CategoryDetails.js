@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+
 import AllItems from "../Item/AllItems";
 
-const ShopAll = () => {
-  const [allItems, setAllItems] = useState([]);
+const CategoryDetails = () => {
+  const { categoryName } = useParams();
+
+  const [allCat, setAllCat] = useState([]);
   useEffect(() => {
-    fetch("/items", { method: "GET" })
+    fetch(`/category/${categoryName}`, { method: "GET" })
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         const feedArray = Object.values(data)[1];
-        setAllItems(feedArray);
+
+        setAllCat(feedArray);
       });
   }, []);
-  const allMed = allItems.filter(item=>item.category === "Medical")
+
   return (
     <PageWrap>
       <GridWrap>
-        {allMed.map((item) => {
+        {allCat.map((item) => {
           return <AllItems key={item._id} item={item} />;
-          
         })}
       </GridWrap>
     </PageWrap>
@@ -51,4 +55,4 @@ const GridWrap = styled.div`
     grid-template-columns: 20rem;
   }
 `;
-export default ShopAll;
+export default CategoryDetails;

@@ -70,7 +70,7 @@ const getAllCompanies = (req, res) => {
 //An endpoint to access one company based on its id:
 
 const getCompaniesById = (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params.categoryName
 
   const filtedCompany = companies.filter((company) => {
     return company._id === Number(id);
@@ -86,6 +86,18 @@ const getCompaniesById = (req, res) => {
       status: 200,
       data: filtedCompany,
     });
+  }
+};
+
+const getCategoryByName = (req, res) => {
+  const categoryName  = req.params.categoryName 
+  const filteredCategory = items.filter((result) => {
+    return result.category === categoryName;
+  });
+  if (!filteredCategory) {
+    res.status(404).json({ status: 404, message: "Category not found" });
+  } else {
+    res.status(200).json({ status: 200, data: filteredCategory });
   }
 };
 
@@ -122,5 +134,5 @@ module.exports = {
   getAllCompanies,
   getItemsById,
   getCompaniesById,
-  patchItems,
+  patchItems,getCategoryByName
 };

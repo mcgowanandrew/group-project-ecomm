@@ -27,8 +27,21 @@ const Cart = () => {
       : itemsPrice + taxPrice + shippingPrice;
 
   // handler for submit and reset curtItem button
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     alert("Success!");
+    // fetch("/cart/update", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ _id: 6544, numInStock: 6 }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("data", data);
+    //   });
+
     setCartItems([]);
   };
   return (
@@ -40,19 +53,21 @@ const Cart = () => {
         )}
       </div>
       <Divider>
-        {cartItems.map((item) => (
-          <AllOrders key={item._id}>
-            <ItemImg src={item.imageSrc} alt={item.name} />
-            <ItemName>{item.name}</ItemName>
-            <ButtonWrap>
-              <button onClick={() => onRemove(item)}>-</button>
-              <button onClick={() => onAdd(item)}>+</button>
-            </ButtonWrap>
-            <PriceDiv>
-              {item.quantity} x {item.price}
-            </PriceDiv>
-          </AllOrders>
-        ))}
+        <OrderWrapper>
+          {cartItems.map((item) => (
+            <AllOrders key={item._id}>
+              <ItemImg src={item.imageSrc} alt={item.name} />
+              <ItemName>{item.name}</ItemName>
+              <ButtonWrap>
+                <button onClick={() => onRemove(item)}>-</button>
+                <button onClick={() => onAdd(item)}>+</button>
+              </ButtonWrap>
+              <PriceDiv>
+                {item.quantity} x {item.price}
+              </PriceDiv>
+            </AllOrders>
+          ))}{" "}
+        </OrderWrapper>
         {cartItems.length !== 0 && (
           <OrderSummary>
             <ItemsPrice>Items Price: ${itemsPrice.toFixed(2)}</ItemsPrice>
@@ -159,6 +174,10 @@ const Shipping = styled.div`
 const FinalPrice = styled.div`
   padding: 0.8rem;
   text-align: center;
+`;
+const OrderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export default Cart;

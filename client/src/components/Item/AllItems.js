@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+
 import styled from "styled-components";
 
 const Item = ({ item }) => {
+
   return (
     <>
       <ItemWrapper>
@@ -14,7 +16,9 @@ const Item = ({ item }) => {
           <Wrap>
             <Price>{item.price}</Price>
             {item.numInStock <= 0 && <SoldOut>SOLD OUT</SoldOut>}
-            {item.numInStock >= 1 && <Cart>ADD TO CART</Cart>}
+            {item.numInStock >= 1 && (
+              <Cart>ADD TO CART</Cart>
+            )}
           </Wrap>
         </Hover>
       </ItemWrapper>
@@ -59,10 +63,9 @@ const SoldOut = styled.button`
 
 const Price = styled.div`
   font-size: 1.5rem;
-  font-weight:700;
+  font-weight: 700;
   text-align: center;
   margin-top: 0.5rem;
-
 `;
 
 const Cat = styled.div`

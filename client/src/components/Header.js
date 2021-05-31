@@ -8,11 +8,11 @@ const Header = () => {
   return (
     <Main>
       <LinkWrap>
-        <StoreName to={"/"}>Clown Town</StoreName>
-        <Cat to={"/categories"}>Categories</Cat>
-        <All to={"/shop-all"}>Shop All</All>
-        <About to={"/"}>About US</About>
-        <Con to={"/"}>Contact</Con>
+        <StoreName exact to={"/"}>Clown Town</StoreName>
+        <Cat exact to={"/categories"}>Categories</Cat>
+        <All exact to={"/shop/shop-all"}>Shop All</All>
+        <About exact to={"#"}>About US</About>
+        <Con exact to={"#"}>Contact</Con>
       </LinkWrap>
       <CartWrap>
         {/* <Search placeholder={"Search"} type="text"></Search> */}

@@ -2,23 +2,32 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
-// import { FaOpencart } from "react-icons/fa";
 
 const Header = () => {
   return (
     <Main>
       <LinkWrap>
-        <StoreName to={"/"}>Clown Town</StoreName>
-        <Cat to={"/categories"}>Categories</Cat>
-        <All to={"/shop-all"}>Shop All</All>
-        <About to={"/about-us"}>About US</About>
-        <Con to={"/contact"}>Contact</Con>
+        <StoreName exact to={"/"}>
+          Clown Town
+        </StoreName>
+        <Cat exact to={"/categories"}>
+          Categories
+        </Cat>
+        <All exact to={"/shop/shop-all"}>
+          Shop All
+        </All>
+        <About exact to={"#"}>
+          About US
+        </About>
+        <Con exact to={"#"}>
+          Contact
+        </Con>
       </LinkWrap>
       <CartWrap>
         {/* <Search placeholder={"Search"} type="text"></Search> */}
         <StyledBiSearchAlt2 />
         <StyledBiUserCircle />
-        <NavLink to={"/cart"}>
+        <NavLink to={"/shop/cart"}>
           <StyledBiCartAlt />
         </NavLink>
       </CartWrap>

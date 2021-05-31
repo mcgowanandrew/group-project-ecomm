@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Contact = () => {
+  const handleSumbit = (ev) => {
+    //ev.preventDefault();
+    //alert("tahnks foir submitging...");
+  };
   return (
     <Wrap>
       <Form>
@@ -9,17 +13,38 @@ const Contact = () => {
         <FormContent>
           <InputWrapper>
             <label for="fname">Full Name</label>
-            <input type="text" name="fname" placeholder="Your name" />
+            <input
+              type="text"
+              name="fname"
+              placeholder="Your name"
+              required="true"
+            />
           </InputWrapper>
           <InputWrapper>
             <label for="femail">Email</label>
-            <input type="email" name="femail" placeholder="Your email" />
+            <input
+              type="email"
+              name="femail"
+              placeholder="Your email"
+              required="true"
+            />
           </InputWrapper>
           <InputWrapper>
             <label for="subject">Subject</label>
-            <textarea name="subject" placeholder="Write something.."></textarea>
+            <textarea
+              name="subject"
+              placeholder="Write something.."
+              required="true"
+            ></textarea>
           </InputWrapper>
-          <input type="submit" value="Submit" className="submitBtn" />
+          <input
+            onClick={(ev) => {
+              handleSumbit(ev);
+            }}
+            type="submit"
+            value="Submit"
+            className="submitBtn"
+          />
         </FormContent>
       </Form>
     </Wrap>

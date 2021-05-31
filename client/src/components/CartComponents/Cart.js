@@ -11,7 +11,10 @@ const Cart = () => {
   const { cartItems, setCartItems, onAdd, onRemove } = useContext(CartContext);
 
   const itemsPrice = cartItems.reduce((a, c) => {
-    return a + c.quantity * c.price;
+    const price = c.price.substring(1);
+    const numPrice = parseInt(price);
+    // console.log("price", typeof numPrice);
+    return a + c.quantity * numPrice.toFixed(2);
   }, 0);
 
   const submitHandler = () => {

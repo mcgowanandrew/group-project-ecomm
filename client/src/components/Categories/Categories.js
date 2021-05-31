@@ -9,20 +9,20 @@ import ent from "../assets/entertainment.jpg";
 const Categories = () => {
   return (
     <CatgegoryWrap>
-      <Fitness to="/fitness">
+      <Fitness to="/category/Fitness">
         <Dark>
           <Fit>Fitness</Fit>
         </Dark>
       </Fitness>
 
-      <Lifestyle to="/lifestyle">
+      <Lifestyle to="/category/Lifestyle">
         <Dark>
         <Life>Lifestyle</Life></Dark>
       </Lifestyle>
-      <Entertainment to="/entertainment"><Dark>
+      <Entertainment to="/category/Entertainment"><Dark>
         <Ent>Entertainment</Ent></Dark>
       </Entertainment>
-      <Medical to="/medical"><Dark>
+      <Medical to="/category/Medical"><Dark>
         <Med>Medical</Med></Dark>
       </Medical>
     </CatgegoryWrap>

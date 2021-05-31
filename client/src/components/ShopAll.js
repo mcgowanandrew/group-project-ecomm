@@ -5,7 +5,7 @@ import AllItems from "./Item/AllItems";
 const ShopAll = () => {
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {
-    fetch("/items", { method: "GET" })
+    fetch("/shop/shop-all", { method: "GET" })
       .then((res) => {
         return res.json();
       })

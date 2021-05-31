@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import img from "../assets/bg.jpg";
-import surf from "../assets/surf.jpg";
+import img from  "./assets/bg.jpg";
+import surf from "./assets/surf.jpg";
 import {
   TiSocialTwitter,
   TiSocialInstagram,

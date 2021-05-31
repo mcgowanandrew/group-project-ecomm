@@ -10,13 +10,23 @@ import { CartContext } from "./CartContext";
 const Cart = () => {
   const { cartItems, setCartItems, onAdd, onRemove } = useContext(CartContext);
 
+  //calculated price of items and conditionaly display those to the summary section
+
   const itemsPrice = cartItems.reduce((a, c) => {
     const price = c.price.substring(1);
-    const numPrice = parseInt(price);
+    const numPrice = Number(price);
     // console.log("price", typeof numPrice);
-    return a + c.quantity * numPrice.toFixed(2);
+    return a + c.quantity * numPrice;
   }, 0);
 
+  const taxPrice = itemsPrice * 0.15;
+  const shippingPrice = itemsPrice > 200 ? "Free" : 10;
+  const totalPrice =
+    shippingPrice === "Free"
+      ? itemsPrice + taxPrice
+      : itemsPrice + taxPrice + shippingPrice;
+
+  // handler for submit and reset curtItem button
   const submitHandler = () => {
     alert("Success!");
     setCartItems([]);
@@ -45,10 +55,10 @@ const Cart = () => {
         ))}
         {cartItems.length !== 0 && (
           <OrderSummary>
-            <ItemsPrice>Items Price: ${itemsPrice}</ItemsPrice>
-            <Tax>Tax: </Tax>
-            <Shipping>Shipping:</Shipping>
-            <FinalPrice>Total: </FinalPrice>
+            <ItemsPrice>Items Price: ${itemsPrice.toFixed(2)}</ItemsPrice>
+            <Tax>Tax: ${taxPrice.toFixed(2)} </Tax>
+            <Shipping>Shipping: ${shippingPrice}</Shipping>
+            <FinalPrice>Total: ${totalPrice.toFixed(2)} </FinalPrice>
             <button onClick={submitHandler}>Submit</button>
           </OrderSummary>
         )}
@@ -60,7 +70,7 @@ const Cart = () => {
 const Wrapper = styled.div`
   font-size: 20px;
   width: 60vw;
-  height: 80vh;
+  height: 100vh;
   margin: auto;
   margin-top: 20px;
   border-radius: 10px;
@@ -71,7 +81,7 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.div`
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 0.5rem;
   text-align: center;
   background-color: black;
@@ -81,7 +91,7 @@ const Heading = styled.div`
 `;
 
 const EmptyMsg = styled.div`
-  font-size: 1rem;
+  font-size: 2rem;
   padding: 0.5rem;
   text-align: center;
   color: Black;
@@ -97,42 +107,58 @@ const AllOrders = styled.div`
 
 const ItemImg = styled.img`
   border-radius: 0.5rem;
-  width: 4rem;
-  height: 4rem;
-  padding: 0.5rem;
+  width: 8rem;
+  height: 8rem;
+  padding: 0.8rem;
 `;
 
 const ItemName = styled.div`
-  font-size: 0.9rem;
+  font-size: 2rem;
   width: 10rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
 `;
 const ButtonWrap = styled.div`
-  padding: 0.5rem;
+  padding: 0.8rem;
 `;
 const PriceDiv = styled.div`
-  padding: 0.5rem;
-  font-size: 0.9rem;
+  padding: 0.8rem;
+  font-size: 2rem;
   text-align: center;
 `;
 
 const Divider = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
 `;
 const OrderSummary = styled.div`
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-items: flex-start;
-  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: flex-end;
+  font-size: 2rem;
+  border-left: 1px solid black;
 `;
 
-const ItemsPrice = styled.div``;
-const Tax = styled.div``;
-const Shipping = styled.div``;
-const FinalPrice = styled.div``;
+const ItemsPrice = styled.div`
+  padding: 0.8rem;
+  text-align: center;
+`;
+const Tax = styled.div`
+  padding: 0.8rem;
+  text-align: center;
+`;
+const Shipping = styled.div`
+  padding: 0.8rem;
+  text-align: center;
+`;
+const FinalPrice = styled.div`
+  padding: 0.8rem;
+  text-align: center;
+`;
 
 export default Cart;

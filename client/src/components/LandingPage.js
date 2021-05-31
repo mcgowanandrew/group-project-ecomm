@@ -89,7 +89,7 @@ const Landing = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden;
-  @media (max-width: 890px) {
+  @media (max-width: 1024px) {
     background-image: url(${surf});
   }
 `;

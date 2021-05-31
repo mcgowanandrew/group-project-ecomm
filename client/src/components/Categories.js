@@ -88,7 +88,7 @@ const Fitness = styled(NavLink)`
   text-decoration: none;
   background-size: cover;
   width: 35rem;
-  height: 35rem;
+  height: auto;
   background-image: url(${fit});
 `;
 

@@ -112,7 +112,7 @@ const Hover = styled.div`
   flex-direction: column;
   justify-content: space-between;
   z-index: 3;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.9);
   width: 100%;
   height: 100%;
   opacity: 0;

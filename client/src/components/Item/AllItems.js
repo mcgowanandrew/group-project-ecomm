@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { CartContext } from "../CartComponents/CartContext";
 
 const Item = ({ item }) => {
+  // const [isShown,setIsShown]=useState(false)
+  const { onAdd } = useContext(CartContext);
+
   return (
     <>
       <ItemWrapper>
@@ -14,7 +18,10 @@ const Item = ({ item }) => {
           <Wrap>
             <Price>{item.price}</Price>
             {item.numInStock <= 0 && <SoldOut>SOLD OUT</SoldOut>}
-            {item.numInStock >= 1 && <Cart>ADD TO CART</Cart>}
+            {item.numInStock >= 1 && (
+              //imported onAdd from CartContext to add an item to cart onClick
+              <Cart onClick={() => onAdd(item)}>ADD TO CART</Cart>
+            )}
           </Wrap>
         </Hover>
       </ItemWrapper>
@@ -59,10 +66,9 @@ const SoldOut = styled.button`
 
 const Price = styled.div`
   font-size: 1.5rem;
-  font-weight:700;
+  font-weight: 700;
   text-align: center;
   margin-top: 0.5rem;
-
 `;
 
 const Cat = styled.div`

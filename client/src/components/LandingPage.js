@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import img from "../assets/bg.jpg";
-import surf from "../assets/surf.jpg"
+import surf from "../assets/surf.jpg";
 import {
   TiSocialTwitter,
   TiSocialInstagram,
@@ -82,8 +82,8 @@ const Social = styled.div`
 const Landing = styled.div`
   background-image: url(${img});
   background-size: cover;
-  position:fixed;
- 
+  position: fixed;
+
   width: 100vw;
   height: 100vh;
   display: flex;

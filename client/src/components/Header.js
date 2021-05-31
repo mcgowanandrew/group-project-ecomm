@@ -16,10 +16,10 @@ const Header = () => {
         <All exact to={"/shop/shop-all"}>
           Shop All
         </All>
-        <About exact to={"#"}>
+        <About exact to={"/about-us"}>
           About US
         </About>
-        <Con exact to={"#"}>
+        <Con exact to={"/contact"}>
           Contact
         </Con>
       </LinkWrap>

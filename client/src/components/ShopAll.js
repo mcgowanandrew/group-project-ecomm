@@ -15,7 +15,6 @@ const ShopAll = () => {
         setAllItems(feedArray);
       });
   }, []);
-  // console.log("all",allItems)
 
   return (
     <PageWrap>

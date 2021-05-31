@@ -4,11 +4,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
-// import Navbar from "./components/Navbar/Navbar";
 import ShopAll from "./components/ShopAll";
 import Categories from "./components/Categories/Categories";
-import Brands from "./components/BrandPage/Brands";
-import CategoryDetails from "./components/Categories/CategoryDetails";
+import CategoryDetails from "./components/Categories/CategoryDetails"
+import Cart from "./components/CartComponents/Cart";
 
 ///
 function App() {
@@ -27,14 +26,14 @@ function App() {
         <Route exact path="/categories">
           <Categories />
         </Route>
-        <Route exact path="/:categoryName">
+        <Route exact path="/category/:categoryName">
           <CategoryDetails />
         </Route>
         <Route exact path="/shop/shop-all">
           <ShopAll />
         </Route>
-        <Route exact path="/brands">
-          <Brands />
+        <Route exact path="/shop/cart">
+          <Cart />
         </Route>
       </Switch>
     </BrowserRouter>

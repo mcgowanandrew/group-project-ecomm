@@ -34,9 +34,9 @@ app.use("/", express.static(__dirname + "/"));
 
 // REST endpoints for all items
 
-app.get("/shop-all", getAllItems);
+app.get("/shop/shop-all", getAllItems);
 app.get("/items/:id", getItemsById);
-app.get("/:categoryName",getCategoryByName)
+app.get("/category/:categoryName",getCategoryByName)
 
 // REST endpoints for all companies
 

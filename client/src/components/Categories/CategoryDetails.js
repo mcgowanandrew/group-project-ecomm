@@ -9,7 +9,7 @@ const CategoryDetails = () => {
 
   const [allCat, setAllCat] = useState([]);
   useEffect(() => {
-    fetch(`/${categoryName}`, { method: "GET" })
+    fetch(`/category/${categoryName}`, { method: "GET" })
       .then((res) => {
         return res.json();
       })

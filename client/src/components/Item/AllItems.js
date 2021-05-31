@@ -1,8 +1,10 @@
-import React, { useEffect, useContext } from "react";
-
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { CartContext } from "../CartComponents/CartContext";
 
 const Item = ({ item }) => {
+  // const [isShown,setIsShown]=useState(false)
+  const { onAdd } = useContext(CartContext);
 
   return (
     <>
@@ -17,7 +19,8 @@ const Item = ({ item }) => {
             <Price>{item.price}</Price>
             {item.numInStock <= 0 && <SoldOut>SOLD OUT</SoldOut>}
             {item.numInStock >= 1 && (
-              <Cart>ADD TO CART</Cart>
+              //imported onAdd from CartContext to add an item to cart onClick
+              <Cart onClick={() => onAdd(item)}>ADD TO CART</Cart>
             )}
           </Wrap>
         </Hover>

@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
-// import { FaOpencart } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -18,7 +17,9 @@ const Header = () => {
         {/* <Search placeholder={"Search"} type="text"></Search> */}
         <StyledBiSearchAlt2 />
         <StyledBiUserCircle />
-        <StyledBiCartAlt />
+        <NavLink to={"/shop/cart"}>
+          <StyledBiCartAlt />
+        </NavLink>
       </CartWrap>
     </Main>
   );
@@ -43,6 +44,7 @@ const StyledBiCartAlt = styled(BiCartAlt)`
   width: 2.3vw;
   height: 100%;
   cursor: pointer;
+  color: white;
   &:hover {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
@@ -63,6 +65,8 @@ const CartWrap = styled.div`
   align-items: flex-end;
   margin-right: 1.5rem;
   margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StoreName = styled(NavLink)`

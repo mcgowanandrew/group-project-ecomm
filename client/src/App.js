@@ -6,8 +6,10 @@ import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
 import ShopAll from "./components/ShopAll";
 import Categories from "./components/Categories/Categories";
-import CategoryDetails from "./components/Categories/CategoryDetails"
+import CategoryDetails from "./components/Categories/CategoryDetails";
 import Cart from "./components/CartComponents/Cart";
+import AboutUs from "./components/AboutUs";
+import Contact from "./components/Contact";
 
 ///
 function App() {
@@ -34,6 +36,12 @@ function App() {
         </Route>
         <Route exact path="/shop/cart">
           <Cart />
+        </Route>
+        <Route exact path="/about-us">
+          <AboutUs />
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -2,25 +2,23 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AllItems from "./Item/AllItems";
 
-const ShopAll = () => {
-  const [allItems, setAllItems] = useState([]);
-  useEffect(() => {
-    fetch("/shop/shop-all", { method: "GET" })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        const feedArray = Object.values(data)[1];
-        setAllItems(feedArray);
-      });
-  }, []);
+const ShopAll = ({ allItems, setAllItems }) => {
+  // useEffect(() => {
+  //   fetch("/shop/shop-all", { method: "GET" })
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       const feedArray = Object.values(data)[1];
+  //       setAllItems(feedArray);
+  //     });
+  // }, []);
 
   return (
     <PageWrap>
       <GridWrap>
         {allItems.map((item) => {
           return <AllItems key={item._id} item={item} />;
-          
         })}
       </GridWrap>
     </PageWrap>

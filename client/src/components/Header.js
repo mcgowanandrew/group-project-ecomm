@@ -2,10 +2,23 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
-// import data from
-import SearchResults from "./SearchResults";
 
-const Header = () => {
+const Header = ({
+  value,
+  setValue,
+  searchResults,
+  setSearchResults,
+  allItems,
+}) => {
+  const handleSearch = (ev) => {
+    console.log(allItems);
+    console.log(value);
+    // gets value of input box
+    // looks thru store data to see if any store item .includes(search term)
+    // does a history.push to a search results component that loads the relevant store item(s)
+    // that were .includes in the store items stsate.... naw mean?
+    // if none, just return the search results c omponent that says "sry nothing found xD"
+  };
   return (
     <Main>
       <LinkWrap>
@@ -28,7 +41,27 @@ const Header = () => {
       <CartWrap>
         {/* <Search placeholder={"Search"} type="text"></Search> */}
         <SearchWrapper>
-          <SearchResults />
+          <div>
+            <Input
+              type="text"
+              placeholder="search for items"
+              value={value}
+              onChange={(ev) => setValue(ev.target.value)}
+              //   onKeyDown={(ev) => {
+              //     if (ev.key === "Enter") {
+              //       handleSearch(ev.target.value);
+              //     }
+              //   }
+              // }
+            />
+            <button
+              onClick={(ev) => {
+                handleSearch(ev);
+              }}
+            >
+              <StyledBiSearchAlt2 />
+            </button>
+          </div>
         </SearchWrapper>
         <StyledBiUserCircle />
         <NavLink to={"/shop/cart"}>
@@ -168,6 +201,21 @@ const Main = styled.div`
   width: 100vw;
   display: flex;
   justify-content: space-between;
+`;
+
+const Input = styled.input`
+  border-radius: 10px;
+`;
+
+const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
+  width: 2.3vw;
+  height: 100%;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+  }
 `;
 
 export default Header;

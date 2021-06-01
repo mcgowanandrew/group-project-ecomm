@@ -17,7 +17,7 @@ const Item = ({ item }) => {
           </TopWrap>
           <Wrap>
             <Price>{item.price}</Price>
-            {item.numInStock <= 0 && <SoldOut>SOLD OUT</SoldOut>}
+            {item.numInStock === 0 && <SoldOut>SOLD OUT</SoldOut>}
             {item.numInStock >= 1 && (
               //imported onAdd from CartContext to add an item to cart onClick
               <Cart onClick={() => onAdd(item)}>ADD TO CART</Cart>

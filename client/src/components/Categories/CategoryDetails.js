@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import Footer from "../Footer"
 
 import AllItems from "../Item/AllItems";
 
@@ -18,7 +19,7 @@ const CategoryDetails = () => {
 
         setAllCat(feedArray);
       });
-  }, []);
+  }, [categoryName]);
 
   return (
     <PageWrap>
@@ -27,6 +28,7 @@ const CategoryDetails = () => {
           return <AllItems key={item._id} item={item} />;
         })}
       </GridWrap>
+      <Footer/>
     </PageWrap>
   );
 };
@@ -34,6 +36,9 @@ const CategoryDetails = () => {
 const PageWrap = styled.div`
   height: 100vh;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 `;
 
 const GridWrap = styled.div`

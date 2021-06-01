@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import styled from "styled-components";
 import AllItems from "./Item/AllItems";
+import Footer from "./Footer"
 
 const ShopAll = () => {
-  const [allItems, setAllItems] = useState([]);
+  const [allData, setAllData] = useState([]);
   useEffect(() => {
     fetch("/shop/shop-all", { method: "GET" })
       .then((res) => {
@@ -11,18 +13,18 @@ const ShopAll = () => {
       })
       .then((data) => {
         const feedArray = Object.values(data)[1];
-        setAllItems(feedArray);
+        setAllData(feedArray);
       });
   }, []);
 
   return (
     <PageWrap>
       <GridWrap>
-        {allItems.map((item) => {
+        {allData.map((item) => {
           return <AllItems key={item._id} item={item} />;
-          
         })}
       </GridWrap>
+      <Footer/>
     </PageWrap>
   );
 };

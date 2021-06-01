@@ -102,11 +102,12 @@ const getCategoryByName = (req, res) => {
 };
 
 const patchItems = (req, res) => {
-  const { _id, quantity } = req.body;
+  //const { _id, quantity } = req.body;
 
-  let purchasedItem = items.filter((item) => {
-    return item._id === _id;
-  });
+  console.log(req.body);
+  // let purchasedItem = items.filter((item) => {
+  //   return item._id === _id;
+  // });
 
   // when adding fetch for this handler in the front end cart componenent
   // aka running fetch onClick of purchase button
@@ -121,13 +122,15 @@ const patchItems = (req, res) => {
   // right now handler works for the purchase of only 1 item at
   // a time :)
 
-  purchasedItem[0].numInStock = purchasedItem[0].numInStock - quantity;
+  //purchasedItem[0].numInStock = purchasedItem[0].numInStock - quantity;
   res.status(200).json({
     status: 200,
     message: "updated",
-    data: purchasedItem,
+    data: "hi",
   });
 };
+
+//[ {	"_id": 6545, "quantity": 2}, {	"_id": 6544, "quantity": 1} ]
 
 module.exports = {
   getAllItems,

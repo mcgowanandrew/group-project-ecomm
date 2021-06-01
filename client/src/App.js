@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import GlobalStyles from "./components/GlobalStyles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 

@@ -2,16 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
+// import data from
+import SearchResults from "./SearchResults";
 
 const Header = () => {
-  const handleSearch = (ev) => {
-    // gets value of input box
-    // looks thru store data to see if any store item .includes(search term)
-    // does a history.push to a search results component that loads the relevant store item(s)
-    // that were .includes in the store items stsate.... naw mean?
-    // if none, just return the search results c omponent that says "sry nothing found xD"
-    console.log(ev);
-  };
   return (
     <Main>
       <LinkWrap>
@@ -34,14 +28,7 @@ const Header = () => {
       <CartWrap>
         {/* <Search placeholder={"Search"} type="text"></Search> */}
         <SearchWrapper>
-          <Input type="text" placeholder="pls..." />
-          <button
-            onClick={(ev) => {
-              handleSearch(ev);
-            }}
-          >
-            <StyledBiSearchAlt2 />
-          </button>
+          <SearchResults />
         </SearchWrapper>
         <StyledBiUserCircle />
         <NavLink to={"/shop/cart"}>
@@ -69,19 +56,19 @@ const SearchWrapper = styled.div`
     margin: 0;
   }
 `;
-const Input = styled.input`
-  border-radius: 10px;
-`;
-const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
-  width: 2.3vw;
-  height: 100%;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.5;
-    transition: all 0.2s ease-in-out;
-  }
-`;
+// const Input = styled.input`
+//   border-radius: 10px;
+// `;
+// const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
+//   width: 2.3vw;
+//   height: 100%;
+//   color: white;
+//   cursor: pointer;
+//   &:hover {
+//     opacity: 0.5;
+//     transition: all 0.2s ease-in-out;
+//   }
+// `;
 const StyledBiCartAlt = styled(BiCartAlt)`
   width: 2.3vw;
   height: 100%;

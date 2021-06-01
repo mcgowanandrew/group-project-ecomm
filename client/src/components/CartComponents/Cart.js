@@ -29,18 +29,25 @@ const Cart = () => {
   // handler for submit and reset curtItem button
   const submitHandler = (e) => {
     e.preventDefault();
-    alert("Success!");
-    // fetch("/cart/update", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ _id: 6544, numInStock: 6 }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log("data", data);
-    //   });
+    // alert("Success!");
+    let itemQuantArray = [];
+    cartItems.map((item) => {
+      //console.log(item._id, item.quantity);
+      itemQuantArray.push({ _id: item._id, quantity: item.quantity });
+    });
+    console.log(itemQuantArray, "the array of posts :)");
+    //console.log(cartItems);
+    fetch("/cart/update", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: { itemQuantArray },
+    })
+      //.then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
+      });
 
     setCartItems([]);
   };

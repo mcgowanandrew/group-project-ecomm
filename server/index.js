@@ -11,7 +11,7 @@ const {
   getAllCompanies,
   getItemsById,
   getCompaniesById,
-  patchItems,getCategoryByName,getAllCategories 
+  patchItems,getCategoryByName
 } = require("./handlers");
 
 const app = express();
@@ -36,7 +36,6 @@ app.use("/", express.static(__dirname + "/"));
 
 app.get("/shop/shop-all", getAllItems);
 app.get("/items/:id", getItemsById);
-app.get("/category",getAllCategories )
 app.get("/category/:categoryName",getCategoryByName)
 
 // REST endpoints for all companies

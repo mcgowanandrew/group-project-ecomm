@@ -70,7 +70,7 @@ const getAllCompanies = (req, res) => {
 //An endpoint to access one company based on its id:
 
 const getCompaniesById = (req, res) => {
-  const { id } = req.params.categoryName
+  const { id } = req.params.categoryName;
 
   const filtedCompany = companies.filter((company) => {
     return company._id === Number(id);
@@ -90,7 +90,7 @@ const getCompaniesById = (req, res) => {
 };
 
 const getCategoryByName = (req, res) => {
-  const categoryName  = req.params.categoryName 
+  const categoryName = req.params.categoryName;
   const filteredCategory = items.filter((result) => {
     return result.category === categoryName;
   });
@@ -149,5 +149,6 @@ module.exports = {
   getAllCompanies,
   getItemsById,
   getCompaniesById,
-  patchItems,getCategoryByName,getAllCategories 
+  patchItems,
+  getCategoryByName,
 };

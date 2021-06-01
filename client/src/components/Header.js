@@ -4,18 +4,45 @@ import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
 
 const Header = () => {
+  const handleSearch = (ev) => {
+    // gets value of input box
+    // looks thru store data to see if any store item .includes(search term)
+    // does a history.push to a search results component that loads the relevant store item(s)
+    // that were .includes in the store items stsate.... naw mean?
+    // if none, just return the search results c omponent that says "sry nothing found xD"
+    console.log(ev);
+  };
   return (
     <Main>
       <LinkWrap>
-        <StoreName exact to={"/"}>Clown Town</StoreName>
-        <Cat exact to={"/categories"}>Categories</Cat>
-        <All exact to={"/shop/shop-all"}>Shop All</All>
-        <About exact to={"#"}>About US</About>
-        <Con exact to={"#"}>Contact</Con>
+        <StoreName exact to={"/"}>
+          Clown Town
+        </StoreName>
+        <Cat exact to={"/categories"}>
+          Categories
+        </Cat>
+        <All exact to={"/shop/shop-all"}>
+          Shop All
+        </All>
+        <About exact to={"/about-us"}>
+          About US
+        </About>
+        <Con exact to={"/contact"}>
+          Contact
+        </Con>
       </LinkWrap>
       <CartWrap>
         {/* <Search placeholder={"Search"} type="text"></Search> */}
-        <StyledBiSearchAlt2 />
+        <SearchWrapper>
+          <Input type="text" placeholder="pls..." />
+          <button
+            onClick={(ev) => {
+              handleSearch(ev);
+            }}
+          >
+            <StyledBiSearchAlt2 />
+          </button>
+        </SearchWrapper>
         <StyledBiUserCircle />
         <NavLink to={"/shop/cart"}>
           <StyledBiCartAlt />
@@ -31,9 +58,24 @@ const Header = () => {
 //   border-radius: 2vw;
 //   border: none;
 // `;
+const SearchWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  button {
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+`;
+const Input = styled.input`
+  border-radius: 10px;
+`;
 const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
   width: 2.3vw;
   height: 100%;
+  color: white;
   cursor: pointer;
   &:hover {
     opacity: 0.5;
@@ -45,6 +87,7 @@ const StyledBiCartAlt = styled(BiCartAlt)`
   height: 100%;
   cursor: pointer;
   color: white;
+
   &:hover {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;

@@ -65,8 +65,11 @@ const Form = styled.form`
     0 16px 16px rgba(0, 0, 0, 0.12);
 
   h1 {
+    display: flex;
+    justify-content: center;
     background: black;
     color: white;
+    padding: 15px;
   }
 `;
 

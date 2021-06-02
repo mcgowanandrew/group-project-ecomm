@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { CartContext } from "./CartContext";
-import Footer from "../Footer"
+import CartModal from "./CartModal";
 
 //imported CartContyext to add reomve ites and calculate price on cart
 // if there is no item conditionaly it will show an empty message
@@ -9,7 +9,16 @@ import Footer from "../Footer"
 // calcuted total price of all items from the cartItems array
 
 const Cart = () => {
-  const { cartItems, setCartItems, onAdd, onRemove } = useContext(CartContext);
+  const {
+    cartItems,
+    setCartItems,
+    onAdd,
+    onRemove,
+    openModal,
+    setOpenModal,
+    handleClickOpen,
+    handleClose,
+  } = useContext(CartContext);
 
   //calculated price of items and conditionaly display those to the summary section
 
@@ -78,7 +87,7 @@ const Cart = () => {
         {cartItems.length !== 0 && (
           <OrderSummary>
             <ItemsPrice>
-              <span>Items Price:</span> ${itemsPrice.toFixed(2)}
+              <span>Price:</span> ${itemsPrice.toFixed(2)}
             </ItemsPrice>
             <Tax>
               <span>Tax:</span> ${taxPrice.toFixed(2)}{" "}
@@ -90,18 +99,27 @@ const Cart = () => {
               <span>Total:</span> ${totalPrice.toFixed(2)}{" "}
             </FinalPrice>
 
+            <Terms>
+              <label>
+                Accept terms and condition{" "}
+                <input type="checkbox" required></input>{" "}
+              </label>
+            </Terms>
+
             <CheckoutButton onClick={submitHandler}>Checkout</CheckoutButton>
           </OrderSummary>
         )}
       </Divider>
+      <CartModal />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  padding: 2rem;
   font-size: 20px;
-  width: 60vw;
-  height: 100vh;
+  width: 55vw;
+  height: 100%;
   margin: auto;
   margin-top: 4rem;
   border-radius: 10px;
@@ -110,8 +128,13 @@ const Wrapper = styled.div`
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
-  background: linear-gradient(to left, black 40%, white 33.33%, white 33.33%);
-  @media only screen and (max-width: 1280px) {
+  /* background: linear-gradient(
+    to left,
+    black 33.33%,
+    white 33.33%,
+    white 33.33%
+  ); */
+  @media only screen and (max-width: 700px) {
     background: white;
     height: 100%;
   }
@@ -141,13 +164,23 @@ const AllOrders = styled.div`
   flex-direction: row;
   padding: 0.5rem;
   margin: 10px;
+  /* border-bottom: 0.05rem solid black; */
+  box-shadow: 0px 15px 10px -15px;
+  @media only screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+  }
 `;
 
 const ItemImg = styled.img`
   width: 8rem;
   height: 8rem;
   padding: 0.8rem;
-  margin: 1rem;
+  margin: auto;
   border: 1px solid #fff;
   border-radius: 0.6rem;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
@@ -157,7 +190,7 @@ const ItemImg = styled.img`
 
 const ItemName = styled.div`
   font-size: 1.5rem;
-  width: 10rem;
+  width: 15rem;
   padding: 0.8rem;
   margin: 0 1rem;
 `;
@@ -183,6 +216,7 @@ const Divider = styled.div`
   align-items: flex-start;
 `;
 const OrderSummary = styled.div`
+  background: black;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -192,8 +226,16 @@ const OrderSummary = styled.div`
   font-size: 2rem;
   color: white;
   margin: 10px;
-  @media only screen and (max-width: 1280px) {
+  @media only screen and (max-width: 700px) {
+    align-content: center;
     color: black;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
   }
 `;
 
@@ -204,6 +246,7 @@ const ItemsPrice = styled.div`
   span {
     font-size: 1.5rem;
   }
+  box-shadow: 0px 15px 10px -15px;
 `;
 const Tax = styled.div`
   padding: 0.8rem;
@@ -212,6 +255,7 @@ const Tax = styled.div`
   span {
     font-size: 1.5rem;
   }
+  box-shadow: 0px 15px 10px -15px;
 `;
 const Shipping = styled.div`
   padding: 0.8rem;
@@ -220,6 +264,7 @@ const Shipping = styled.div`
   span {
     font-size: 1.5rem;
   }
+  box-shadow: 0px 15px 10px -15px;
 `;
 const FinalPrice = styled.div`
   padding: 0.8rem;
@@ -229,6 +274,7 @@ const FinalPrice = styled.div`
   span {
     font-size: 1.5rem;
   }
+  box-shadow: 0px 15px 10px -15px;
 `;
 const OrderWrapper = styled.div`
   display: flex;
@@ -266,10 +312,19 @@ const CheckoutButton = styled.button`
   font-size: 1.5rem;
   border: none;
   border-radius: 0.4rem;
-  padding: 0.6rem;
+  padding: 0.6rem 2.5rem;
   &:hover {
-    transition: all 0.3s ease-out;
-    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.5;
   }
+  @media only screen and (max-width: 700px) {
+    background: black;
+    color: white;
+  }
+`;
+
+const Terms = styled.div`
+  margin: 1rem;
+  font-size: 1.5rem;
 `;
 export default Cart;

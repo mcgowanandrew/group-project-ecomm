@@ -32,6 +32,7 @@ const CategoryDetails = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         const feedArray = Object.values(data)[1];
 
         setAllCat(feedArray);

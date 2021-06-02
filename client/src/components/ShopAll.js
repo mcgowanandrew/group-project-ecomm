@@ -1,31 +1,19 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AllItems from "./Item/AllItems";
-import Footer from "./Footer"
-import UpButton from "./UpButton"
+import Footer from "./Footer";
+import UpButton from "./UpButton";
 
-const ShopAll = () => {
-  const [allData, setAllData] = useState([]);
-  useEffect(() => {
-    fetch("/shop/shop-all", { method: "GET" })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        const feedArray = Object.values(data)[1];
-        setAllData(feedArray);
-      });
-  }, []);
-
+const ShopAll = ({ allItems, setAllItems }) => {
   return (
     <PageWrap>
-      <UpButton/>
+      <UpButton />
       <GridWrap>
-        {allData.map((item) => {
+        {allItems.map((item) => {
           return <AllItems key={item._id} item={item} />;
         })}
       </GridWrap>
-      <Footer/>
+      <Footer />
     </PageWrap>
   );
 };

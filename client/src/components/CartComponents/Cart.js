@@ -39,26 +39,29 @@ const Cart = () => {
   // handler for submit and reset curtItem button
   const submitHandler = (e) => {
     e.preventDefault();
-    // alert("Success!");
     let itemQuantArray = [];
     cartItems.map((item) => {
-      //console.log(item._id, item.quantity);
       itemQuantArray.push({ _id: item._id, quantity: item.quantity });
     });
-    console.log(itemQuantArray, "the array of posts :)");
-    //console.log(cartItems);
-    fetch("/cart/update", {
-      method: "POST",
+
+    // update item quants after purchase
+    fetch(`/cart/update`, {
+      method: "PATCH",
+      body: JSON.stringify({ itemQuantArray }),
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
-      body: { itemQuantArray },
     })
-      //.then((res) => res.json())
-      .then((data) => {
-        console.log("data", data);
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.status === 201) {
+          // rerun fetch w/ updated data maybe? :)
+          console.log(json.data, "new quantz");
+        }
       });
 
+    alert("Success!");
+    // reset cart:
     setCartItems([]);
   };
   return (

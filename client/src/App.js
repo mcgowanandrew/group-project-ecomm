@@ -18,7 +18,7 @@ function App() {
   const [searchResults, setSearchResults] = React.useState([]);
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {
-    fetch("/shop", { method: "GET" })
+    fetch("/items", { method: "GET" })
       .then((res) => {
         return res.json();
       })

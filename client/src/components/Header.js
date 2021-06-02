@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
 
@@ -10,14 +10,28 @@ const Header = ({
   setSearchResults,
   allItems,
 }) => {
-  const handleSearch = (ev) => {
-    console.log(allItems);
+  const history = useHistory();
+  const handleSearch = () => {
+    // console.log(allItems);
     console.log(value);
     // gets value of input box
     // looks thru store data to see if any store item .includes(search term)
     // does a history.push to a search results component that loads the relevant store item(s)
-    // that were .includes in the store items stsate.... naw mean?
-    // if none, just return the search results c omponent that says "sry nothing found xD"
+    // that were .includes in the store items state.... naw mean?
+    // if none, just return the search results component that says "sry nothing found xD"
+    const filteredSearchResults = allItems.filter((item) => {
+      let checkedItem = "";
+      let lowerCaseSearchResults = item.name.toLowerCase();
+      let lowerCaseInputValue = value.toLowerCase();
+      let checkedCategory = "";
+      if (lowerCaseSearchResults.includes(lowerCaseInputValue)) {
+        checkedItem = item.name;
+      }
+      return checkedItem;
+    });
+    console.log(filteredSearchResults);
+    setSearchResults(filteredSearchResults);
+    history.push("/search-results");
   };
   return (
     <Main>
@@ -39,7 +53,6 @@ const Header = ({
         </Con>
       </LinkWrap>
       <CartWrap>
-        {/* <Search placeholder={"Search"} type="text"></Search> */}
         <SearchWrapper>
           <div>
             <Input
@@ -47,16 +60,15 @@ const Header = ({
               placeholder="search for items"
               value={value}
               onChange={(ev) => setValue(ev.target.value)}
-              //   onKeyDown={(ev) => {
-              //     if (ev.key === "Enter") {
-              //       handleSearch(ev.target.value);
-              //     }
-              //   }
-              // }
+              onKeyDown={(ev) => {
+                if (ev.key === "Enter") {
+                  handleSearch(ev.target.value);
+                }
+              }}
             />
             <button
               onClick={(ev) => {
-                handleSearch(ev);
+                handleSearch(ev.target.value);
               }}
             >
               <StyledBiSearchAlt2 />
@@ -71,13 +83,7 @@ const Header = ({
     </Main>
   );
 };
-// const Search = styled.input`
-//   width: 30rem;
-//   height: 3rem;
-//   margin-bottom: 1rem;
-//   border-radius: 2vw;
-//   border: none;
-// `;
+
 const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -89,19 +95,7 @@ const SearchWrapper = styled.div`
     margin: 0;
   }
 `;
-// const Input = styled.input`
-//   border-radius: 10px;
-// `;
-// const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
-//   width: 2.3vw;
-//   height: 100%;
-//   color: white;
-//   cursor: pointer;
-//   &:hover {
-//     opacity: 0.5;
-//     transition: all 0.2s ease-in-out;
-//   }
-// `;
+
 const StyledBiCartAlt = styled(BiCartAlt)`
   width: 2.3vw;
   height: 100%;

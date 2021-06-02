@@ -55,6 +55,12 @@ Fetch the data for a specific item. Returns data in the same shape as `/items`
 
 If the item does not exist, it returns a 404 error of `"Item not found by ID"`.
 
+### GET `/category/:categoryName`
+
+Fetch the data for items by category which is passed via `req.params`
+
+Returns data in the same shape as `/items`
+
 ---
 
 ## Company Endpoints
@@ -96,6 +102,13 @@ These endpoints update the contents of the cart.
 
 ### PATCH `/cart/update`
 
-Updates the cart items and subtracts 1 from `numInStock`.
+Updates the items data and subtracts the quantity bought from `numInStock`.
 
-_This handler can be reworked to allow customers to purchase more than one unit of a particular item._
+```json
+[
+  {
+    "newQuantity": 5,
+    "_id": 6547
+  }
+]
+```

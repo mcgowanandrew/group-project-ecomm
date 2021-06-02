@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { CartContext } from "./CartContext";
+import Footer from "../Footer"
 
 //imported CartContyext to add reomve ites and calculate price on cart
 // if there is no item conditionaly it will show an empty message

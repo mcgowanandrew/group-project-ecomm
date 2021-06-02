@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
 import styled from "styled-components";
 import AllItems from "./Item/AllItems";
 import Footer from "./Footer"
+import UpButton from "./UpButton"
 
 const ShopAll = () => {
   const [allData, setAllData] = useState([]);
@@ -19,6 +19,7 @@ const ShopAll = () => {
 
   return (
     <PageWrap>
+      <UpButton/>
       <GridWrap>
         {allData.map((item) => {
           return <AllItems key={item._id} item={item} />;

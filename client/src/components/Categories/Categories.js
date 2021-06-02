@@ -9,10 +9,12 @@ import ind from "../assets/ind.jpg";
 import pet from "../assets/pet.jpg";
 import game from "../assets/game.jpg";
 import Footer from "../Footer";
+import UpButton from "../UpButton"
 
 const Categories = () => {
   return (
     <>
+    <UpButton/>
       <CatgegoryWrap>
         <Fitness to="/category/Fitness">
           <Dark>
@@ -80,6 +82,8 @@ const Lifestyle = styled(NavLink)`
   width: 30rem;
   height: 30rem;
   background-image: url(${life});
+  margin: 0 1rem 2rem;
+
 `;
 const Game = styled(NavLink)`
   border-radius: 1.5rem;
@@ -88,6 +92,8 @@ const Game = styled(NavLink)`
   width: 30rem;
   height: 30rem;
   background-image: url(${game});
+  margin: 0 1rem 2rem;
+
 `;
 
 const Pet = styled(NavLink)`
@@ -97,6 +103,8 @@ const Pet = styled(NavLink)`
   width: 30rem;
   height: 30rem;
   background-image: url(${pet});
+  margin: 0 1rem 2rem;
+
 `;
 
 const Entertainment = styled(NavLink)`
@@ -106,6 +114,8 @@ const Entertainment = styled(NavLink)`
   width: 30rem;
   height: 30rem;
   background-image: url(${ent});
+  margin: 0 1rem 2rem;
+
 `;
 const Industrial = styled(NavLink)`
   border-radius: 1.5rem;
@@ -114,6 +124,8 @@ const Industrial = styled(NavLink)`
   width: 30rem;
   height: 30rem;
   background-image: url(${ind});
+  margin: 0 1rem 2rem;
+
 `;
 const Medical = styled(NavLink)`
   border-radius: 1.5rem;
@@ -122,6 +134,8 @@ const Medical = styled(NavLink)`
   width: 30rem;
   height: 30rem;
   background-image: url(${med});
+  margin: 0 1rem 2rem;
+
 `;
 
 const Fitness = styled(NavLink)`
@@ -131,14 +145,20 @@ const Fitness = styled(NavLink)`
   width: 30rem;
   height: auto;
   background-image: url(${fit});
+  margin: 0 1rem 2rem;
 `;
 
 const CatgegoryWrap = styled.div`
-  margin-top: 3rem;
-  display: grid;
+/* width:100rem; */
+  margin:4rem auto;
+  display:flex;
+  flex-flow: row wrap;
+  /* align-content: center; */
+  justify-content: center;
+  /* display: grid;
   grid-template-columns: 30rem 35rem;
   gap: 3rem;
   justify-content: center;
-  align-content: center;
+  align-content: center; */
 `;
 export default Categories;

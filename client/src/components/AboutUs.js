@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Footer from "./Footer"
 
 const AboutUs = () => {
   return (
@@ -24,12 +25,16 @@ const AboutUs = () => {
           fermentum felis aliquet tristique eleifend.
         </p>
       </InnerWrap>
+      <Footer/>
     </Wrap>
   );
 };
 const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 `;
 const InnerWrap = styled.div`
   max-width: 600px;

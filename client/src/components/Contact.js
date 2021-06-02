@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Footer from "./Footer"
 
 const Contact = () => {
   const handleSumbit = (ev) => {
@@ -47,16 +48,20 @@ const Contact = () => {
           />
         </FormContent>
       </Form>
+      <Footer/>
     </Wrap>
   );
 };
 const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 `;
 
 const Form = styled.form`
-  max-width: 500px;
+  width: 500px;
   margin: 20px auto;
   border: 1px solid black;
   border-radius: 5px;

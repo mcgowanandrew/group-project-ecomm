@@ -13,16 +13,16 @@ const LandingPage = () => {
   return (
     <Landing>
       <Social>
-        <a href="/">
+        <a href="/#">
           <StyledTiSocialTwitter />
         </a>
-        <a href="/">
+        <a href="/#">
           <StyledTiSocialInstagram />
         </a>
-        <a href="/">
+        <a href="/#">
           <StyledTiSocialFacebook />
         </a>
-        <a href="/">
+        <a href="/#">
           <StyledTiSocialYoutube />
         </a>
       </Social>

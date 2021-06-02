@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AllItems from "./Item/AllItems";
+import Footer from "./Footer";
+import UpButton from "./UpButton";
 
 const ShopAll = ({ allItems, setAllItems }) => {
   // useEffect(() => {
@@ -16,11 +18,13 @@ const ShopAll = ({ allItems, setAllItems }) => {
 
   return (
     <PageWrap>
+      <UpButton />
       <GridWrap>
-        {allItems.map((item) => {
+        {allData.map((item) => {
           return <AllItems key={item._id} item={item} />;
         })}
       </GridWrap>
+      <Footer />
     </PageWrap>
   );
 };

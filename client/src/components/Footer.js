@@ -1,18 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import img from "./assets/bg.jpg";
-import surf from "./assets/surf.jpg";
 import {
   TiSocialTwitter,
   TiSocialInstagram,
   TiSocialFacebook,
   TiSocialYoutube,
-} from "react-icons/ti";
+} from "react-icons/ti"
 
-const LandingPage = () => {
-  return (
-    <Landing>
-      <Social>
+const Footer = () => {
+  return <Wrap><Foot>
+       <Social>
         <a href="/#">
           <StyledTiSocialTwitter />
         </a>
@@ -25,11 +22,22 @@ const LandingPage = () => {
         <a href="/#">
           <StyledTiSocialYoutube />
         </a>
-      </Social>
-    </Landing>
-  );
+      </Social></Foot></Wrap>;
 };
+const Foot = styled.div`
+ width: 100vw;
+  height: 5rem;
+  background: #000;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  `
 
+const Wrap = styled.div`
+
+`;
 const StyledTiSocialTwitter = styled(TiSocialTwitter)`
   width: 20px;
   height: 20px;
@@ -73,25 +81,9 @@ const StyledTiSocialYoutube = styled(TiSocialYoutube)`
 const Social = styled.div`
   width: 20vw;
   display: flex;
-  position: fixed;
   bottom: 0;
   justify-content: space-around;
   padding: 10px;
 `;
 
-const Landing = styled.div`
-  background-image: url(${img});
-  background-size: cover;
-  position: fixed;
-
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  @media (max-width: 1024px) {
-    background-image: url(${surf});
-  }
-`;
-
-export default LandingPage;
+export default Footer;

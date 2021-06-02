@@ -77,7 +77,10 @@ const Header = ({
         </SearchWrapper>
         <StyledBiUserCircle />
         <NavLink to={"/shop/cart"}>
-          <StyledBiCartAlt />
+          <ShopWrapper>
+            <StyledBiCartAlt />
+            {cartItems.length ? <CartItem>{cartItems.length}</CartItem> : " "}
+          </ShopWrapper>
         </NavLink>
       </CartWrap>
     </Main>
@@ -101,6 +104,8 @@ const StyledBiCartAlt = styled(BiCartAlt)`
   height: 100%;
   cursor: pointer;
   color: white;
+  /* position: relative;
+  top: 8px; */
 
   &:hover {
     opacity: 0.5;
@@ -128,6 +133,7 @@ const CartWrap = styled.div`
 
 const StoreName = styled(NavLink)`
   font-size: 3vw;
+  /* font-size: clamp(1.5vw,2.5vw,3vw); */
   color: #fff;
   font-weight: 700;
   &:hover {
@@ -212,4 +218,18 @@ const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
   }
 `;
 
+const ShopWrapper = styled.div`
+  display: flex;
+`;
+const CartItem = styled.div`
+  color: white;
+
+  /* position: relative; */
+  z-index: 2;
+
+  font-size: 1.5rem;
+  /* bottom: 28px;
+
+  left: 9px; */
+`;
 export default Header;

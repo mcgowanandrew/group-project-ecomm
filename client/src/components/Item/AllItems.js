@@ -17,11 +17,9 @@ const Item = ({ item }) => {
           </TopWrap>
           <Wrap>
             <Price>{item.price}</Price>
-            {item.numInStock <= 0 && <SoldOut>SOLD OUT</SoldOut>}
-            {item.numInStock >= 1 && (
-              //imported onAdd from CartContext to add an item to cart onClick
-              <Cart onClick={() => onAdd(item)}>ADD TO CART</Cart>
-            )}
+            {item.numInStock === 0 ? (<SoldOut>SOLD OUT</SoldOut>):  //imported onAdd from CartContext to add an item to cart onClick
+              (<Cart onClick={() => onAdd(item)}>ADD TO CART</Cart>)}
+
           </Wrap>
         </Hover>
       </ItemWrapper>
@@ -74,13 +72,15 @@ const Price = styled.div`
 const Cat = styled.div`
   color: #5c5e5e;
   font-style: italic;
-  margin-top: 0.3rem;
+  margin-top: 0.7rem;
+  font-size: 1.3rem;
 `;
 
 const Name = styled.span`
   text-align: center;
-  font-size: 1.2rem;
-  margin-top: 0%.5rem;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
 `;
 const ItemImg = styled.img`
   position: absolute;

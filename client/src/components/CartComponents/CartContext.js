@@ -6,7 +6,19 @@ import React, { useState, createContext, useEffect } from "react";
 export const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
+  // state for cart
   const [cartItems, setCartItems] = useState([]);
+
+  // // state for modal
+
+  // const [openModal, setOpenModal] = useState(false);
+
+  // const handleClickOpen = () => {
+  //   setOpenModal(true);
+  // };
+  // const handleClose = () => {
+  //   setOpenModal(false);
+  // };
 
   //   console.log("allItems", allItems);
   // console.log("item", item);

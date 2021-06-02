@@ -94,7 +94,7 @@ a{
     font-weight: 500;
     font-size: 2.0rem;
 }
-p,span,section{
+p,section{
     font-weight:400;
     font-size: 1.6rem;
 }

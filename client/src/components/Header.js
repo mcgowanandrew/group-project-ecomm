@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
-
+import { CartContext } from "./CartComponents/CartContext";
 const Header = ({
   value,
   setValue,
@@ -10,6 +10,7 @@ const Header = ({
   setSearchResults,
   allItems,
 }) => {
+  const { cartItems } = useContext(CartContext);
   const history = useHistory();
   const handleSearch = () => {
     // console.log(allItems);

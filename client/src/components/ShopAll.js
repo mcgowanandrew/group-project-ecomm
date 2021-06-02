@@ -5,22 +5,11 @@ import Footer from "./Footer";
 import UpButton from "./UpButton";
 
 const ShopAll = ({ allItems, setAllItems }) => {
-  // useEffect(() => {
-  //   fetch("/shop/shop-all", { method: "GET" })
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       const feedArray = Object.values(data)[1];
-  //       setAllItems(feedArray);
-  //     });
-  // }, []);
-
   return (
     <PageWrap>
       <UpButton />
       <GridWrap>
-        {allData.map((item) => {
+        {allItems.map((item) => {
           return <AllItems key={item._id} item={item} />;
         })}
       </GridWrap>

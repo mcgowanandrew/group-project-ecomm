@@ -9,12 +9,13 @@ import ind from "../assets/ind.jpg";
 import pet from "../assets/pet.jpg";
 import game from "../assets/game.jpg";
 import Footer from "../Footer";
-import UpButton from "../UpButton"
+import UpButton from "../UpButton";
 
 const Categories = () => {
+  // fix footer here
   return (
     <>
-    <UpButton/>
+      <UpButton />
       <CatgegoryWrap>
         <Fitness to="/category/Fitness">
           <Dark>
@@ -74,7 +75,6 @@ const H2 = styled.h2`
   color: #fff;
 `;
 
-
 const Lifestyle = styled(NavLink)`
   border-radius: 1.5rem;
   text-decoration: none;
@@ -83,7 +83,6 @@ const Lifestyle = styled(NavLink)`
   height: 30rem;
   background-image: url(${life});
   margin: 0 1rem 2rem;
-
 `;
 const Game = styled(NavLink)`
   border-radius: 1.5rem;
@@ -93,7 +92,6 @@ const Game = styled(NavLink)`
   height: 30rem;
   background-image: url(${game});
   margin: 0 1rem 2rem;
-
 `;
 
 const Pet = styled(NavLink)`
@@ -104,7 +102,6 @@ const Pet = styled(NavLink)`
   height: 30rem;
   background-image: url(${pet});
   margin: 0 1rem 2rem;
-
 `;
 
 const Entertainment = styled(NavLink)`
@@ -115,7 +112,6 @@ const Entertainment = styled(NavLink)`
   height: 30rem;
   background-image: url(${ent});
   margin: 0 1rem 2rem;
-
 `;
 const Industrial = styled(NavLink)`
   border-radius: 1.5rem;
@@ -125,7 +121,6 @@ const Industrial = styled(NavLink)`
   height: 30rem;
   background-image: url(${ind});
   margin: 0 1rem 2rem;
-
 `;
 const Medical = styled(NavLink)`
   border-radius: 1.5rem;
@@ -135,7 +130,6 @@ const Medical = styled(NavLink)`
   height: 30rem;
   background-image: url(${med});
   margin: 0 1rem 2rem;
-
 `;
 
 const Fitness = styled(NavLink)`
@@ -149,9 +143,9 @@ const Fitness = styled(NavLink)`
 `;
 
 const CatgegoryWrap = styled.div`
-/* width:100rem; */
-  margin:4rem auto;
-  display:flex;
+  /* width:100rem; */
+  margin: 4rem auto;
+  display: flex;
   flex-flow: row wrap;
   /* align-content: center; */
   justify-content: center;

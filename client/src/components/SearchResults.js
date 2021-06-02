@@ -41,6 +41,7 @@ const Input = styled.input`
 `;
 
 const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
+  margin-top: 10px;
   width: 2.3vw;
   height: 100%;
   color: white;

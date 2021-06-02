@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
 // import data from
 import SearchResults from "./SearchResults";
+import { CartContext } from "./CartComponents/CartContext";
 
 const Header = () => {
+  const { cartItems, setCartItems } = useContext(CartContext);
+
+  console.log("cartItems", cartItems);
+
   return (
     <Main>
       <LinkWrap>
@@ -33,6 +38,7 @@ const Header = () => {
         <StyledBiUserCircle />
         <NavLink to={"/shop/cart"}>
           <StyledBiCartAlt />
+          {cartItems.length ? <CartItem>{cartItems.length}</CartItem> : " "}
         </NavLink>
       </CartWrap>
     </Main>
@@ -170,4 +176,10 @@ const Main = styled.div`
   justify-content: space-between;
 `;
 
+const CartItem = styled.div`
+  color: red;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+`;
 export default Header;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const SearchResults = ({}) => {
   const [value, setValue] = React.useState("");

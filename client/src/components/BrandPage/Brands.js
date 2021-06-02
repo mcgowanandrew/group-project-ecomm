@@ -1,6 +1,8 @@
 import React ,{useEffect,useState} from "react"
 import styled from "styled-components"
 import List from "./List"
+import Footer from "./Footer"
+
 
 
 const Brands = ()=>{
@@ -28,6 +30,7 @@ return(
           
         })}
   </BrandWrap>
+  <Footer/>
   </Wrap>
 
 

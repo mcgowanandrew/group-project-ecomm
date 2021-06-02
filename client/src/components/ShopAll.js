@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AllItems from "./Item/AllItems";
+import Footer from "./Footer"
+import UpButton from "./UpButton"
 
 const ShopAll = () => {
-  const [allItems, setAllItems] = useState([]);
+  const [allData, setAllData] = useState([]);
   useEffect(() => {
     fetch("/shop/shop-all", { method: "GET" })
       .then((res) => {
@@ -11,18 +13,19 @@ const ShopAll = () => {
       })
       .then((data) => {
         const feedArray = Object.values(data)[1];
-        setAllItems(feedArray);
+        setAllData(feedArray);
       });
   }, []);
 
   return (
     <PageWrap>
+      <UpButton/>
       <GridWrap>
-        {allItems.map((item) => {
+        {allData.map((item) => {
           return <AllItems key={item._id} item={item} />;
-          
         })}
       </GridWrap>
+      <Footer/>
     </PageWrap>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from "react-icons/bi";
+import { BiUserCircle, BiCartAlt,} from "react-icons/bi";
 // import data from
 import SearchResults from "./SearchResults";
 import { CartContext } from "./CartComponents/CartContext";
@@ -111,6 +111,7 @@ const CartWrap = styled.div`
 
 const StoreName = styled(NavLink)`
   font-size: 3vw;
+  /* font-size: clamp(1.5vw,2.5vw,3vw); */
   color: #fff;
   font-weight: 700;
   &:hover {

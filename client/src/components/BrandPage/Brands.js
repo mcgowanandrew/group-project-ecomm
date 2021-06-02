@@ -13,13 +13,13 @@ const Brands = ()=>{
             return res.json();
           })
           .then((data) => {
-              console.log("data",data)
+              // console.log("data",data)
             const feedArray = Object.values(data)[1];
-            console.log("feed",feedArray)
+            // console.log("feed",feedArray)
             setAllBrands(feedArray);
           });
       }, []);
-      console.log("all",allBrands)
+      // console.log("all",allBrands)
 
 return(
 

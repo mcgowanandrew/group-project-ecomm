@@ -14,7 +14,7 @@ const Header = ({
   const history = useHistory();
   const handleSearch = () => {
     // console.log(allItems);
-    console.log(value);
+    // console.log(value);
     // gets value of input box
     // looks thru store data to see if any store item .includes(search term)
     // does a history.push to a search results component that loads the relevant store item(s)
@@ -30,7 +30,7 @@ const Header = ({
       }
       return checkedItem;
     });
-    console.log(filteredSearchResults);
+    // console.log(filteredSearchResults);
     setSearchResults(filteredSearchResults);
     history.push("/search-results");
   };
@@ -67,15 +67,20 @@ const Header = ({
                 }
               }}
             />
-            <button
+            {/* <button
               onClick={(ev) => {
                 handleSearch(ev.target.value);
               }}
-            >
-              <StyledBiSearchAlt2 />
-            </button>
+            > */}
+              {/* <StyledBiSearchAlt2   onClick={(ev) => {
+                handleSearch(ev.target.value);
+              }}/> */}
+            {/* </button> */}
           </div>
         </SearchWrapper>
+        <StyledBiSearchAlt2   onClick={(ev) => {
+                handleSearch(ev.target.value);
+              }}/>
         <StyledBiUserCircle />
         <NavLink to={"/shop/cart"}>
           <ShopWrapper>
@@ -91,16 +96,18 @@ const Header = ({
 const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
-  button {
+  /* button {
     background: transparent;
     outline: none;
     border: none;
     padding: 0;
     margin: 0;
-  }
+  } */
 `;
 
 const StyledBiCartAlt = styled(BiCartAlt)`
+  margin-left: 1rem;
+
   width: 2.3vw;
   height: 100%;
   cursor: pointer;
@@ -114,6 +121,7 @@ const StyledBiCartAlt = styled(BiCartAlt)`
   }
 `;
 const StyledBiUserCircle = styled(BiUserCircle)`
+  margin-left: 1rem;
   width: 2.3vw;
   height: 100%;
   cursor: pointer;
@@ -205,11 +213,18 @@ const Main = styled.div`
 `;
 
 const Input = styled.input`
+margin-right: 0.5rem;
   border-radius: 10px;
+  :focus { outline: none; } 
+  @media (max-width: 768px) {
+   display: none;
+  }
+
 `;
 
 const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
   width: 2.3vw;
+  margin-left: 1rem;
   height: 100%;
   color: white;
   cursor: pointer;

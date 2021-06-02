@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { CartContext } from "./CartComponents/CartContext";
+// import Footer from "../components/Footer"
 
 const SearchResults = ({ searchResults, setSearchResults, value }) => {
-  console.log(searchResults);
+  // console.log(searchResults);
   const { onAdd } = useContext(CartContext);
   return (
     <PageWrap>
@@ -36,6 +37,7 @@ const SearchResults = ({ searchResults, setSearchResults, value }) => {
           );
         })}
       </GridWrap>
+      {/* <Footer/> */}
     </PageWrap>
   );
 };

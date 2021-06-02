@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { CartContext } from "./CartContext";
 import CartModal from "./CartModal";
-
+import Footer from "../Footer"
 //imported CartContyext to add reomve ites and calculate price on cart
 // if there is no item conditionaly it will show an empty message
 // used map to display some information of added items on the cartItems array
@@ -56,7 +56,7 @@ const Cart = () => {
       .then((json) => {
         if (json.status === 201) {
           // rerun fetch w/ updated data maybe? :)
-          console.log(json.data, "new quantz");
+          // console.log(json.data, "new quantz");
         }
       });
 
@@ -64,7 +64,7 @@ const Cart = () => {
     // reset cart:
     setCartItems([]);
   };
-  return (
+  return (<>
     <Wrapper>
       {/* <Heading>Cart Items</Heading> */}
 
@@ -101,7 +101,7 @@ const Cart = () => {
             <FinalPrice>
               <span>Total:</span> ${totalPrice.toFixed(2)}{" "}
             </FinalPrice>
-
+<CheckWrap>
             <Terms>
               <label>
                 Accept terms and condition{" "}
@@ -110,13 +110,21 @@ const Cart = () => {
             </Terms>
 
             <CheckoutButton onClick={submitHandler}>Checkout</CheckoutButton>
+            </CheckWrap>
+
           </OrderSummary>
         )}
       </Divider>
       <CartModal />
     </Wrapper>
+    {/* <Footer/> */}
+    </>
   );
 };
+const CheckWrap = styled.div`
+display:flex;
+justify-content:space-between;
+width:100%;`
 
 const Wrapper = styled.div`
   padding: 2rem;
@@ -127,9 +135,9 @@ const Wrapper = styled.div`
   margin-top: 4rem;
   border-radius: 10px;
   font-size: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
 
   /* background: linear-gradient(
     to left,
@@ -221,11 +229,13 @@ const Divider = styled.div`
 const OrderSummary = styled.div`
   background: black;
   display: flex;
-  flex-direction: column;
+  flex-flow:row wrap;
+  /* flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-end;
-  align-content: flex-end;
+  align-content: flex-end; */
+  width:100%;
   font-size: 2rem;
   color: white;
   margin: 10px;
@@ -282,6 +292,7 @@ const FinalPrice = styled.div`
 const OrderWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width:100%;
 `;
 
 const AddButton = styled.button`
@@ -314,6 +325,7 @@ const CheckoutButton = styled.button`
   margin: 1rem;
   font-size: 1.5rem;
   border: none;
+  display:flex;
   border-radius: 0.4rem;
   padding: 0.6rem 2.5rem;
   &:hover {

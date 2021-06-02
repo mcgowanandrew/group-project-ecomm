@@ -6,7 +6,7 @@ import { FaChevronCircleLeft} from "react-icons/fa";
 import AllItems from "../Item/AllItems";
 import UpButton from "../UpButton"
 const CategoryDetails = () => {
-  const [isDesktop, setDesktop] = useState();
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 768);
   const { categoryName } = useParams();
 
   let history = useHistory();
@@ -32,7 +32,7 @@ const CategoryDetails = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const feedArray = Object.values(data)[1];
 
         setAllCat(feedArray);
@@ -43,16 +43,11 @@ const CategoryDetails = () => {
     <PageWrap>
 <UpButton/>
       <Wrap>
-        {isDesktop ? (
+       
           <Back onClick={handleBackClick}>
             <Chev />
-            <span>Back</span>
+            <Span>Back</Span>
           </Back>
-        ) : (
-          <Back onClick={handleBackClick}>
-            <Chev />
-          </Back>
-        )}
         <GridWrap>
           {allCat.map((item) => {
             return <AllItems key={item._id} item={item} />;
@@ -64,7 +59,10 @@ const CategoryDetails = () => {
     </PageWrap>
   );
 };
-
+const Span = styled.span`
+ @media (max-width: 768px) {
+   display: none;
+  }`
 const Wrap = styled.div`
   width: 92rem;
   margin: 0 auto;

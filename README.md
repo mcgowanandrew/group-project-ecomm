@@ -12,7 +12,9 @@
 
 Group Project completed by:
 
-Arunava Chowdhury: github.com/aruchowdhury
-Sean Fox: github.com/cmdshift4
-Andrew Paul: github.com/helloandrewpaul
+Arunava Chowdhury: <github.com/aruchowdhury>
+
+Sean Fox: <github.com/cmdshift4>
+
+Andrew Paul: <github.com/helloandrewpaul>
 

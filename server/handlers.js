@@ -2,7 +2,6 @@ const items = require("./data/items.json");
 const companies = require("./data/companies.json");
 const { restart } = require("nodemon");
 
-//console.log("items", items);
 
 // Handlers for items data file
 
@@ -29,10 +28,7 @@ const getItemsById = (req, res) => {
 
   //console.log("id", id);
   const filtedItem = items.filter((item) => {
-    //console.log("items", item._id);
-    //console.log("items", item._id.toString() === id);
-    //console.log("items", typeof item._id);
-    // console.log("taco", typeof id);
+
 
     return item._id === Number(id);
   });

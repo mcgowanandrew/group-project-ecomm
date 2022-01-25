@@ -83,7 +83,6 @@ const Landing = styled.div`
   background-image: url(${img});
   background-size: cover;
   position: fixed;
-
   width: 100vw;
   height: 100vh;
   display: flex;

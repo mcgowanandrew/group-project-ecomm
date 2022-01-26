@@ -25,14 +25,9 @@ const getAllItems = (req, res) => {
 
 const getItemsById = (req, res) => {
   const { id } = req.params;
-
-  //console.log("id", id);
   const filtedItem = items.filter((item) => {
-
-
     return item._id === Number(id);
   });
-
   if (filtedItem.length <= 0) {
     res.status(404).json({
       status: 404,
@@ -67,11 +62,9 @@ const getAllCompanies = (req, res) => {
 
 const getCompaniesById = (req, res) => {
   const { id } = req.params.categoryName;
-
   const filtedCompany = companies.filter((company) => {
     return company._id === Number(id);
   });
-
   if (!filtedCompany) {
     res.status(404).json({
       status: 404,
@@ -119,8 +112,6 @@ const patchItems = (req, res) => {
     data: newItems,
   });
 };
-
-//[ {	"_id": 6545, "quantity": 2}, {	"_id": 6544, "quantity": 1} ]
 
 module.exports = {
   getAllItems,

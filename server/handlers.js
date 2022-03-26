@@ -98,6 +98,7 @@ const patchItems = (req, res) => {
       return cartItem._id === origItem._id;
     });
   });
+  
   const newItems = filteredCartItems.map((filtItem, index) => {
     if (filtItem[0]._id === cartItems[index]._id) {
       let initialStockNum = filtItem[0].numInStock; //9

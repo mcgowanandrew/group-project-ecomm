@@ -13,8 +13,6 @@ const Header = ({
   const { cartItems } = useContext(CartContext);
   const history = useHistory();
   const handleSearch = () => {
-    // console.log(allItems);
-    // console.log(value);
     // gets value of input box
     // looks thru store data to see if any store item .includes(search term)
     // does a history.push to a search results component that loads the relevant store item(s)
@@ -30,7 +28,6 @@ const Header = ({
       }
       return checkedItem;
     });
-    // console.log(filteredSearchResults);
     setSearchResults(filteredSearchResults);
     history.push("/search-results");
   };
@@ -219,7 +216,6 @@ margin-right: 0.5rem;
   @media (max-width: 768px) {
    display: none;
   }
-
 `;
 
 const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
@@ -237,6 +233,7 @@ const StyledBiSearchAlt2 = styled(BiSearchAlt2)`
 const ShopWrapper = styled.div`
   display: flex;
 `;
+
 const CartItem = styled.div`
   color: white;
 

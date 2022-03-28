@@ -19,7 +19,6 @@ const Brands = ()=>{
             setAllBrands(feedArray);
           });
       }, []);
-      // console.log("all",allBrands)
 
 return(
 
@@ -32,8 +31,6 @@ return(
   </BrandWrap>
   <Footer/>
   </Wrap>
-
-
 )
 }
 const Wrap = styled.div`
@@ -42,9 +39,10 @@ height:100vh;`
 
 
 const BrandWrap = styled.div`
-  margin: 3rem auto;
+margin: 3rem auto;
 width:80vw;
 display:grid;
 grid-template-columns: 30rem 30rem 30rem 30rem;
 gap:3rem;`
+
 export default Brands

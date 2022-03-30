@@ -58,6 +58,7 @@ const getAllCompanies = (req, res) => {
     });
   }
 };
+
 //An endpoint to access one company based on its id:
 
 const getCompaniesById = (req, res) => {
